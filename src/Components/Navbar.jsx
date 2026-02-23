@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { FiHeart, FiShoppingCart, FiMenu, FiX } from "react-icons/fi";
+import { NavLink } from "react-router-dom";
+
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -13,21 +15,36 @@ const Navbar = () => {
 
 
                     <div className="text-2xl font-bold p-1 cursor-pointer border-2 border-transparent hover:border-2 hover:border-purple-700"> {/* Logo  */}
-                        <span className="text-black">Store</span>
-                        <span className="text-purple-700">Mart</span>
+                        <NavLink to="/">
+                            <span className="text-black">Store</span>
+                            <span className="text-purple-700">Mart</span>
+                        </NavLink>
                     </div>
 
 
 
                     <div className="hidden h-full  md:flex space-x-9 text-lg text-gray-900 font-medium">
 
-                        <a href="#" className="h-full flex justify-center px-2 items-center border-b-3 border-transparent  hover:border-b-3 hover:border-purple-700  hover:text-purple-700 transition transform hover:scale-100  ease-in-out duration-400">Home</a>
+                        <NavLink to="/" className="h-full flex justify-center px-2 items-center border-b-3 border-transparent  hover:border-b-3 hover:border-purple-700  hover:text-purple-700 transition transform hover:scale-100  ease-in-out duration-400">
+                            Home
+                        </NavLink>
 
-                        <a href="#" className="h-full flex justify-center px-2 items-center border-b-3 border-transparent  hover:border-b-3 hover:border-purple-700  hover:text-purple-700 transition transform hover:scale-100  ease-in-out duration-400">Products</a>
 
-                        <a href="#" className="h-full flex justify-center px-2 items-center border-b-3 border-transparent  hover:border-b-3 hover:border-purple-700  hover:text-purple-700 transition transform hover:scale-100  ease-in-out duration-400">Wishlist</a>
+                        <NavLink to="/products" className="h-full flex justify-center px-2 items-center border-b-3 border-transparent  hover:border-b-3 hover:border-purple-700  hover:text-purple-700 transition transform hover:scale-100  ease-in-out duration-400">
+                            Products
+                        </NavLink>
 
-                        <a href="#" className="h-full flex justify-center px-2 items-center border-b-3 border-transparent  hover:border-b-3 hover:border-purple-700  hover:text-purple-700 transition transform hover:scale-100  ease-in-out duration-400">Orders</a>
+
+                        <NavLink to="/orders" className="h-full flex justify-center px-2 items-center border-b-3 border-transparent  hover:border-b-3 hover:border-purple-700  hover:text-purple-700 transition transform hover:scale-100  ease-in-out duration-400">
+                            Orders
+                        </NavLink>
+
+
+                        {/* <NavLink to="/home" className="h-full flex justify-center px-2 items-center border-b-3 border-transparent  hover:border-b-3 hover:border-purple-700  hover:text-purple-700 transition transform hover:scale-100  ease-in-out duration-400">
+                            Home
+                        </NavLink> */}
+
+                        
 
                     </div>
 
@@ -64,10 +81,9 @@ const Navbar = () => {
             {isOpen && (
                 <div className="md:hidden bg-white border-t">
                     <div className="flex flex-col px-6 py-4 space-y-4 font-medium text-gray-700">
-                        <a href="#" className="hover:text-purple-700">Home</a>
-                        <a href="#" className="hover:text-purple-700">Products</a>
-                        <a href="#" className="hover:text-purple-700">Wishlist</a>
-                        <a href="#" className="hover:text-purple-700">Orders</a>
+                        <NavLink to="/">Home</NavLink>
+                        <NavLink to="/products">Products</NavLink>
+                        <NavLink to="/orders">Orders</NavLink>
                     </div>
                 </div>
             )}
