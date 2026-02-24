@@ -1,13 +1,27 @@
 import React from 'react'
 
+
+
+import { useDispatch, useSelector } from 'react-redux';
+import { addProducts } from '../Product/ProductSlice';
+
 // React ICons
 import { TiArrowRight } from "react-icons/ti";
 
 const Home = () => {
+
+
+
+    const dispatch  = useDispatch();
+    const product = useSelector((state)=>state.products.products);
+
+
+
+
     return (
         <>
             <div
-                className=' h-screen flex justify-center items-center space-y-10 
+                className=' h-screen w-full flex justify-center items-center space-y-10 
                         bg-[url("https://i.pinimg.com/1200x/09/ab/dd/09abdd904702ef068837a7ac010e926b.jpg")]  bg-cover bg-no-repeat bg-center'>
 
                 <div className='flex flex-col justify-center items-center space-y-10 border border-gray-200 rounded-lg p-4 md:p-6 lg:p-8 xl:p-10 bg-white/10 backdrop-blur-xs'>
@@ -39,7 +53,7 @@ const Home = () => {
             </div>
 
             <div className='h-50'>
-                56
+                {product}
             </div>
 
         </>

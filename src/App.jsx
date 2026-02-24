@@ -1,10 +1,15 @@
-
 import { Routes, Route } from 'react-router-dom';
 import './App.css'
+
+// Importing Navbar
 import Navbar from './Components/Navbar'
-import Home from './Pages/Home'
-import ProductPage from './Pages/ProductPage';
-import OrderPage from './Pages/OrderPage';
+
+// Importing Pages
+import Home from './Pages/Home/Home';
+import ProductPage from './Pages/Product/ProductPage';
+import OrderPage from './Pages/Order/OrderPage';
+
+// Importing Footer
 import Footer from './Components/Footer';
 
 function App() {

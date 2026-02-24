@@ -2,7 +2,7 @@ import React from 'react'
 
 const ProductPage = () => {
   return (
-    <main className=''>
+    <main className='w-full'>
 
         {/* Product page header */}
         <div className='border p-2 py-4'>
