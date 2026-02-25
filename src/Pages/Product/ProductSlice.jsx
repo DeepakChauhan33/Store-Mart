@@ -1,22 +1,30 @@
 import { createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
 
-const initState = {
+const initialState = {
     products : [],
-    loading: false
+    loading: false,
 };
 
 
 const productSlice = createSlice({
     name : "products",
-    initState,
+    initialState,
     
     reducers:{
-        addProducts : (state, action)=>{
-            state.products.push(action.payload)
+
+        getProducts : async (state, action)=>{
+            try {
+                let response = await axios.get("https://fakestoreapi.com/products");
+                console.log(response.data)
+                state.products.push(response.data);
+            } catch (error) {
+                console.log(error)
+            }
         }
     }
 })
 
 
-export const {addProducts} = productSlice.actions;
+export const {getProducts} = productSlice.actions;
 export default productSlice.reducer;

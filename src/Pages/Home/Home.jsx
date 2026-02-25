@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
+import axios from 'axios';
 
 
 
 import { useDispatch, useSelector } from 'react-redux';
-import { addProducts } from '../Product/ProductSlice';
+import { getProducts } from '../Product/ProductSlice';
 
 // React ICons
 import { TiArrowRight } from "react-icons/ti";
+
+
 
 const Home = () => {
 
@@ -15,6 +18,19 @@ const Home = () => {
     const dispatch  = useDispatch();
     const product = useSelector((state)=>state.products.products);
 
+    const [items, setItems] = useState([]);
+
+
+    // async function fetchApi() {
+
+    //     try {
+    //         let respose = await axios.get("https://fakestoreapi.com/products")
+    //         console.log(respose.data);
+
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // }
 
 
 
@@ -52,9 +68,51 @@ const Home = () => {
 
             </div>
 
-            <div className='h-50'>
-                {product}
-            </div>
+
+
+            {/* SHOP BY CATEGORY */}
+            <section className='py-12 px-4 space-y-12'>
+
+                <div className=''>
+                    <h2 className='text-4xl font-bold mb-3'>
+                        Shop by Category
+                    </h2>
+
+                    <p className='text-gray-500 text-lg font-medium'>Explore our diverse product categories</p>
+                </div>
+
+
+
+
+                <div className='grid grid-cols-2 gap-7 p-6'>
+
+                    <div className='bg-blue-100 flex flex-col justify-center items-start rounded-md py-8 px-5'>
+                        <h3 className='text-2xl font-bold'>Men's Wear</h3>
+                        <p className='text-md font-medium text-gray-500'>Stylish apparel for men</p>
+                    </div>
+                    
+                    <div className='bg-blue-100 flex flex-col justify-center items-start rounded-md py-8 px-5'>
+                        <h3 className='text-2xl font-bold'>Men's Wear</h3>
+                        <p className='text-md font-medium text-gray-500'>Stylish apparel for men</p>
+                    </div>
+
+                    <div className='bg-blue-100 flex flex-col justify-center items-start rounded-md py-8 px-5'>
+                        <h3 className='text-2xl font-bold'>Men's Wear</h3>
+                        <p className='text-md font-medium text-gray-500'>Stylish apparel for men</p>
+                    </div>
+
+                    <div className='bg-blue-100 flex flex-col justify-center items-start rounded-md py-8 px-5'>
+                        <h3 className='text-2xl font-bold'>Men's Wear</h3>
+                        <p className='text-md font-medium text-gray-500'>Stylish apparel for men</p>
+                    </div>
+                    
+                </div>
+            </section>
+
+
+            <button
+            className='h-10 w-20 border'
+            onClick={()=>dispatch(getProducts())}>Press</button>
 
         </>
     )
