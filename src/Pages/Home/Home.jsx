@@ -1,14 +1,18 @@
-import React, { useEffect, useState } from 'react'
 
-import { motion } from 'framer-motion';
-
-
-
-import { useDispatch, useSelector } from 'react-redux';
 import { getProducts } from '../Product/ProductSlice';
+
+import { useGetProductsQuery } from '../Product/ProductApi';
+
+
+
 
 // React ICons
 import { TiArrowRight } from "react-icons/ti";
+
+// Import Framer Motion Library For Animation
+import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { div } from 'framer-motion/client';
 
 
 
@@ -16,24 +20,9 @@ const Home = () => {
 
 
 
-    const dispatch = useDispatch();
-    const product = useSelector((state) => state.products.products);
-
-    const [products, setProducts] = useState([]);
-
-    useEffect(() => {
-        getProducts()
-    }, [])
+    const {data:Products} = useGetProductsQuery();
 
 
-    const getProducts = async () => {
-        try {
-            let response = await axios.get("https://fakestoreapi.com/products");
-            setProducts(response.data);
-        } catch (error) {
-            console.log(error)
-        }
-    }
 
 
 
@@ -151,9 +140,9 @@ const Home = () => {
 
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 '>
 
-                    {products.map((item) => {
-                        return <div id={item.id}>
-                            {item.title}
+                    {Products.map((item)=>{
+                        return <div>
+                            <p>{item.title}</p>
                         </div>
                     })}
 
