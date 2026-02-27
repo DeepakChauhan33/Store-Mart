@@ -3,7 +3,8 @@ import { getProducts } from '../Product/ProductSlice';
 
 import { useGetProductsQuery } from '../Product/ProductApi';
 
-
+// Components
+import Categories from './Categories';
 
 
 // React ICons
@@ -11,8 +12,8 @@ import { TiArrowRight } from "react-icons/ti";
 
 // Import Framer Motion Library For Animation
 import { motion } from 'framer-motion';
-import Categories from './Categories';
-import { p } from 'framer-motion/client';
+
+
 
 
 
@@ -88,14 +89,42 @@ const Home = () => {
 
 
             {/* SHOP BY CATEGORY */}
-            <section className='py-12 px-4 space-y-8 sm:space-y-10 lg:space-y-12'>
+            <motion.section
 
+                className='py-12 px-4 space-y-8 sm:space-y-10 lg:space-y-12'
+
+                initial={{ opacity: 0, y: 40 }}  //Animation
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1 }}
+                viewport={{ once: true, amount: 0.4 }}
+            >
+
+                {/* Title and Description */}
                 <div className=''>
-                    <h2 className='text-3xl lg:text-4xl font-bold mb-1 md:mb-2 lg:mb-3'>
-                        Shop by Category
-                    </h2>
 
-                    <p className='text-gray-500 text-sm md:text-md lg:text-lg font-medium'>Explore our diverse product categories</p>
+                    <motion.h2
+
+                        className='text-3xl lg:text-4xl font-bold mb-1 md:mb-2 lg:mb-3' //Styling
+
+                        initial={{ opacity: 0, x: -40 }} // Animation
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8 }}
+                        viewport={{ once: true, amount: 0.4 }}
+                    >
+                        Shop by Category
+                    </motion.h2>
+
+                    <motion.p
+
+                        className='text-gray-500 text-sm md:text-md lg:text-lg font-medium'//Styling
+
+                        initial={{ opacity: 0, x: -40 }} // Animation
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8 }}
+                        viewport={{ once: true, amount: 0.4 }}
+                    >
+                        Explore our diverse product categories
+                    </ motion.p>
                 </div>
 
 
@@ -117,7 +146,7 @@ const Home = () => {
                     </div>
 
                     <div className='py-4 px-3 rounded-md bg-gray-100 shadow-md hover:shadow-lg hover:scale-103 transition-transform duration-400 ease-in-out'>
-                        {isLoading ? <p>Loading....</p> : <Categories product={filterProduct("electronics")} heading={"Electronics"}/>}
+                        {isLoading ? <p>Loading....</p> : <Categories product={filterProduct("electronics")} heading={"Electronics"} />}
                     </div>
 
 
@@ -142,7 +171,7 @@ const Home = () => {
                     </div> */}
 
                 </div>
-            </section>
+            </motion.section>
 
 
 
