@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const ProductApi = createApi({
 
-    reducerPath : "api",
+    reducerPath: "api",
 
     baseQuery: fetchBaseQuery({
         baseUrl: "https://fakestoreapi.com/"
@@ -15,10 +15,19 @@ export const ProductApi = createApi({
                 url: "products/",
                 method: "GET"
             })
-        })
+        }),
+
+        getDynamicProduct: builder.query({
+            query: (id) => ({
+                url: `products/${id}`,
+                method: "GET"
+            })
+        }),
+
+
     })
 })
 
 
 
-export const {useGetProductsQuery} = ProductApi;
+export const { useGetProductsQuery, useGetDynamicProductQuery } = ProductApi;

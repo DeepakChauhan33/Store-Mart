@@ -1,6 +1,14 @@
 import React from 'react'
 
+
+
+// React Icons
 import { CiHeart } from "react-icons/ci";
+
+// Component
+import ButtonComp from './ButtonComp';
+import { NavLink } from 'react-router-dom';
+
 
 const ProductCard = ({ product }) => {
     // console.log(product)
@@ -19,56 +27,55 @@ const ProductCard = ({ product }) => {
     }
 
     return (
-        <div className='border p-1.5 flex flex-col items-start justify-between rounded-xl '>
 
-            {/* Product IMage */}
-            <div className='relative h-60 w-full rounded-xl overflow-hidden flex items-center justify-center py-2 bg-gray-200 '>
+        <div
+            className='flex flex-col justify-between rounded-lg border shadow-md border-gray-200 min-h-[450px] p-3 pb-4 space-y-3 '
+            id={product.id}>
 
-                {/* Image */}
-                <img
-                    className='h-full  object-contain overflow-hidden hover:scale-105 transition duration-400 ease-initial'
-                    src={product.image} alt={product.title}
-                />
 
-                {/* Wishlist Icon */}
-                <button className='absolute top-2 right-3 text-3xl  rounded-full p-1 bg-white shadow-md'>
-                    <CiHeart className='' />
-                </button>
+
+            {/* Image Div */}
+
+            <div className='h-70 w-full rounded-lg overflow-hidden mb-5 '>
+                <NavLink to={`/product/` + product.id}>
+                    <img src={product.image} alt={product.title} className='h-full w-full bg-gray-200 p-3 object-contain' />
+                </NavLink>
             </div>
 
 
-            {/* Product Info */}
-
-            <div className='w-full h-fit flex flex-col justify-around space-y-2 px-2 mt-4 '>
-
-                {/* Product Title */}
-                <p className='text-lg font-semibold'>
-                    {product.title}
-
-                </p>
 
 
-                {/* Product Rating */}
-                <div className='w-full'>
-                    <span className=' text-amber-300 text-xl font-semibold'>{`${handleRating(product.rating.rate)}`}</span>
-                    <span className='text-lg'>{`(${product.rating.count})`}</span>
+            {/* Product Name */}
+            <span className='text-lg text-gray-800 font-bold '>{product.title}</span>
 
-                </div>
+            {/* Product Rating*/}
+            <div className='flex justify-between items-center  text-sm text-gray-700 font-[700]'>
+                <span>{`Rating : ${handleRating(product.rating.rate)} `}</span>
+                <span>{`Reviews : ${product.rating.count}`}</span>
+            </div>
+
+            {/* Product Description */}
+            <div className='text-sm'>
+                <p className='line-clamp-3'>{product.description}</p>
+            </div>
 
 
-                <div className='flex justify-between w-full  '>
-                    <p className='text-2xl lg:text-3xl font-extrabold'>
-                        {`$${product.price}`}
-                    </p>
+            {/* Div contain product price and button */}
+            <div className='flex  justify-between mt-2 '>
 
-                    <button className='  text-white px-4 py-2 rounded-sm bg-gray-800'>
-                        Add to cart
-                    </button>
-                </div>
+                {/* Product Price */}
+                <p className='text-2xl lg:text-3xl  font-bold'>${product.price}</p>
+
+
+                {/*Add to Cart Button */}
+
+                <button className="bg-black text-white px-4 py-2 rounded-sm hover:bg-gray-800">Add to Cart</button>
+
 
             </div>
 
-        </div >
+
+        </div>
     )
 }
 

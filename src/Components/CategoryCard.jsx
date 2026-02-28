@@ -42,7 +42,7 @@ const Categories = ({ product, heading }) => {
                 >
                     {product?.slice(0, 4).map((item) => {
                         return <div id={product.id} className='h-auto bg-white rounded-2xl  '>
-                            <div className='h-[30vw] w-auto   md:h-40 p-2 shadow-lg'>
+                            <div className='h-[45vw] w-auto   md:h-40 p-2 shadow-lg'>
                                 <img src={item.image} alt={item.title} className='object-contain h-full w-full' />
                             </div>
                         </div>
