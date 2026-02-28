@@ -1,10 +1,10 @@
 import { button } from 'framer-motion/client'
 import React from 'react'
 
-const ButtonComp = ({ children }) => {
+const ButtonComp = ({ children, width }) => {
   return (
 
-    <button className='bg-red-300 text-black py-3 px-4'>
+    <button className={`${width} bg-black text-white px-4 py-2 rounded-sm hover:bg-gray-800`}>
       {children}
     </button>
   )

@@ -5,3 +5,12 @@ html{
     overflow-y: scroll;
 
 }
+
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: "Poppins", sans-serif;
+}
