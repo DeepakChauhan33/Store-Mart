@@ -11,7 +11,7 @@ import { RiCashLine } from "react-icons/ri";
 import { TbTruckReturn } from "react-icons/tb";
 import { IoShareSocial } from "react-icons/io5";
 import { FaRegHeart } from "react-icons/fa";
-import { FaArrowLeftLong } from "react-icons/fa6";
+import { BsArrowLeft } from "react-icons/bs";
 
 import { useNavigate, useParams } from 'react-router-dom'
 import { useGetDynamicProductQuery } from '../Product/ProductApi';
@@ -76,18 +76,18 @@ const ProductsPage = () => {
     return (
         <>
 
-            <section className="bg-gray-100/30  flex flex-col items-start mt-3  shadow-md space-x-4 p-2 md:p-5 lg:p-10">
+            <section className="bg-gray-100/30   flex flex-col p-2 md:p-5 ">
 
-                <div>
-                    <button onClick={handleClick} className='p-2 border rounded-full'>
-                        <FaArrowLeftLong />
+                <div className='hidden md:block'>
+                    <button onClick={handleClick} className=' p-1.5 cursor-pointer rounded-full hover:bg-gray-100 ' title='Back'>
+                        <BsArrowLeft className='inline-block text-3xl font-light ' />
                     </button>
                 </div>
 
-                <div className='flex items-start mt-3  shadow-md space-x-4 p-2 md:p-5 lg:p-10'>
+                <div className='flex flex-col md:flex-row items-start mt-3 space-x-4 '>
 
                     {/* Product Image Container */}
-                    <div className="w-full border  md:w-[45%] rounded-lg overflow-hidden mb-5 ">
+                    <div className="relative  w-full  md:w-[45%] rounded-lg overflow-hidden mb-5 ">
 
 
                         <img
@@ -95,14 +95,18 @@ const ProductsPage = () => {
                             alt={product.title}
                             className="w-full h-90 md:h-full md:min-h-100 object-contain bg-gray-300 p-4"
                         />
+
+                        <button onClick={handleClick} className='block md:hidden absolute top-2 left-2 p-2 rounded-full '>
+                            <BsArrowLeft className='inline-block text-2xl font-light ' />
+                        </button>
                     </div>
 
 
                     {/* Product Details Container */}
-                    <div className="flex flex-col border w-full md:w-[55%] p-2 gap-y-5">
+                    <div className="flex flex-col w-full md:w-[55%] p-2 gap-y-5">
 
 
-                        <p className='text-lg font-normal bg-gray-400 w-auto px-2 py-1 ronded-5xl'>{product.category}</p>
+                        <p className='hidden md:block w-fit text-md font-normal border border-gray-300 rounded-3xl px-3 py-2 ronded-5xl'>{product.category}</p>
 
 
                         <div className='flex  justify-between items-center'>
