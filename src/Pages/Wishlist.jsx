@@ -1,6 +1,10 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 
+
+// React Icons
+import { LuBox } from "react-icons/lu";
+
 const Wishlist = () => {
 
   const navigate = useNavigate();

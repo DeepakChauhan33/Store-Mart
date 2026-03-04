@@ -5,6 +5,7 @@ import { useGetProductsQuery } from '../Product/ProductApi';
 
 // Components
 import CategoryCard from '../../Components/CategoryCard';
+import ProductCard from '../../Components/ProductCard';
 
 
 // React ICons
@@ -12,7 +13,7 @@ import { TiArrowRight } from "react-icons/ti";
 
 // Import Framer Motion Library For Animation
 import { motion } from 'framer-motion';
-import ProductCard from '../../Components/ProductCard';
+
 
 
 
