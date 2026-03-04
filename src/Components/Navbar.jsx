@@ -1,5 +1,11 @@
 import React, { useState } from "react";
+
+// Reac Icons
 import { FiHeart, FiShoppingCart, FiMenu, FiX } from "react-icons/fi";
+
+// Motion
+import { motion } from "framer-motion";
+
 import { NavLink } from "react-router-dom";
 
 
@@ -14,12 +20,20 @@ const Navbar = () => {
                 <div className="flex justify-between items-center h-18">
 
 
-                    <div className="text-2xl font-bold p-1 cursor-pointer border-2 border-transparent hover:border-2 hover:border-purple-700"> {/* Logo  */}
+                    {/* Logo */}
+                    <motion.div
+
+                        className="text-2xl font-bold p-1 cursor-pointer border-2 border-transparent hover:border-2 hover:border-purple-700"
+
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8 }}
+                    >
                         <NavLink to="/">
                             <span className="text-black">Store</span>
                             <span className="text-purple-700">Mart</span>
                         </NavLink>
-                    </div>
+                    </motion.div>
 
 
 

@@ -53,7 +53,9 @@ const ProductCard = ({ product }) => {
 
 
             {/* Product Name */}
-            <span className='text-lg text-gray-800 font-semibold'>{product.title}</span>
+            <NavLink to={`/product/` + product.id}>
+                <span className='text-lg text-gray-800 font-semibold cursor-pointer'>{product.title}</span>
+            </NavLink>
 
             {/* Product Rating*/}
             <div className='flex justify-between items-center  text-sm text-gray-700 font-[700]'>

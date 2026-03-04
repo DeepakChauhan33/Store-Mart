@@ -30,8 +30,16 @@ const OrderPage = () => {
         <h2 className='text-4xl font-light'>My Orders</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, autem!</p>
       </motion.div>
+      
 
-      <div className='h-96 flex justify-center items-center border'>
+      <motion.div
+        className='h-96 flex justify-center items-center border'
+
+        initial={{ y: 0, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 1.5 }}
+
+      >
         <div className='flex flex-col justify-center items-center gap-4'>
           <LuBox className='text-7xl text-gray-400' />
           <p>{orderMsg}</p>
@@ -42,7 +50,7 @@ const OrderPage = () => {
             Shop Now
           </button>
         </div>
-      </div>
+      </motion.div>
     </section>
   )
 }
