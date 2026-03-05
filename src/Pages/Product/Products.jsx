@@ -1,17 +1,33 @@
 import React from 'react'
 
+import { useState } from 'react';
 
 // Components
 import ProductCard from '../../Components/ProductCard';
+import CategoryAccordion from '../../Components/CategoryAccordion';
 
 
 
 import { useGetProductsQuery } from '../Product/ProductApi';
-import CategoryAccordion from '../../Components/CategoryAccordion';
 
 const ProductPage = () => {
 
     const { data: Products, isLoading } = useGetProductsQuery();
+
+
+
+
+    const [selected, setSelected] = useState("All Products");
+
+    if (isLoading) {
+        return <p>Loading...</p>
+    }
+
+
+
+    // Filter products based on selected category
+    const filterProducts = selected === "All Products" ? Products : Products?.filter((item) => item.category === selected);
+
 
     return (
         <main className='w-full p-3'>
@@ -28,7 +44,7 @@ const ProductPage = () => {
                 {/* Category container */}
                 <div className='w-full md:w-[20%] border border-gray-300 rounded-lg '>
 
-                    <CategoryAccordion />
+                    <CategoryAccordion selected={selected} setSelected={setSelected} />
                 </div>
 
                 {/* Products Container */}
@@ -36,7 +52,7 @@ const ProductPage = () => {
 
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 '>
 
-                        {Products?.map((item) => <ProductCard product={item} />)}
+                        {filterProducts?.map((item) => <ProductCard product={item} />)}
 
                     </div>
                 </div>

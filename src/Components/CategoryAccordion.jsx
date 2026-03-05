@@ -10,19 +10,22 @@ import { useState } from "react";
 
 const categories = [
     "All Products",
-    "Electronics",
-    "Jewelry",
-    "Men's clothing",
-    "Women's clothing",
+    "electronics",
+    "jewelery",
+    "men's clothing",
+    "women's clothing",
 ];
 
-export default function CategoryFilter() {
-    const [selected, setSelected] = useState("All Products");
+export default function CategoryFilter({ selected, setSelected }) {
+
+
 
     return (
         <Disclosure defaultOpen>
             {({ open }) => (
                 <>
+                    <h1>{selected}</h1>
+
                     <Disclosure.Button className="font-bold text-lg flex items-center justify-between w-full px-4 py-2 text-left text-gray-800 bg-gray-100 rounded-lg hover:bg-gray-200 focus:outline-none ">
                         Category {open ? <IoIosArrowDown className="inline" /> : <IoIosArrowUp className="inline" />}
 
@@ -35,6 +38,7 @@ export default function CategoryFilter() {
                                     name="category"
                                     checked={selected === option}
                                     onChange={() => setSelected(option)}
+
                                 />
                                 {option}
                             </label>
