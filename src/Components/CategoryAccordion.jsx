@@ -31,7 +31,7 @@ export default function CategoryFilter({ selected, setSelected }) {
                     </Disclosure.Button>
                     <Disclosure.Panel className="space-y-2 mt-3 px-4 py-2 bg-gray-50 rounded-lg">
                         {categories.map((option) => (
-                            <label key={option} className="flex items-center gap-2 hover:bg-gray-200 rounded-md px-2 py-1 cursor-pointer">
+                            <label key={option} className="flex text-sm md:text-md items-center gap-2 hover:bg-gray-200 rounded-md px-2 py-1 cursor-pointer">
                                 <input
                                     type="radio"
                                     name="category"

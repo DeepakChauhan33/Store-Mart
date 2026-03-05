@@ -30,10 +30,10 @@ const OrderPage = () => {
         <h2 className='text-4xl font-light'>My Orders</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, autem!</p>
       </motion.div>
-      
+
 
       <motion.div
-        className='h-96 flex justify-center items-center border'
+        className='h-96 flex justify-center items-center '
 
         initial={{ y: 0, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -42,7 +42,7 @@ const OrderPage = () => {
       >
         <div className='flex flex-col justify-center items-center gap-4'>
           <LuBox className='text-7xl text-gray-400' />
-          <p>{orderMsg}</p>
+          <p className='text-xl font-light'>{orderMsg}</p>
 
           <button
             onClick={() => navigate("/products")}

@@ -58,13 +58,13 @@ const ProductPage = () => {
         <main className='w-full p-3'>
 
             {/* Product page header */}
-            <div className=' p-2 py-4'>
+            <div className=' p-2 py-4 space-y-2 bg-gradient-to-r from-purple-50 via-purple-100 to-purple-300'>
                 <h2 className='text-3xl font-bold'>See Products</h2>
-                <p>{msg}</p>
+                <p className='text-xl font-normal'>{msg}</p>
             </div>
 
             {/* COntainer for products */}
-            <div className=' flex flex-col md:flex-row justify-start items-start space-x-0 md:space-x-10 space-y-5 md:space-y-0 p-2 mt-5'>
+            <div className=' flex flex-col md:flex-row justify-start items-start space-x-0 md:space-x-10 space-y-5 md:space-y-0 p-3 mt-5 '>
 
                 {/* Category container */}
                 <div className='w-full md:w-[20%] border border-gray-300 rounded-lg '>

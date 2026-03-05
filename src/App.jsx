@@ -13,6 +13,7 @@ import ProductPage from './Pages/ProductPage/ProductPage';
 
 // Importing Footer
 import Footer from './Components/Footer';
+import ErrorPage from './Pages/ErrorPage/ErrorPage';
 
 
 
@@ -31,6 +32,7 @@ function App() {
           <Route path='/orders' element={<OrderPage />}></Route>
           <Route path='/wishlist' element={<Wishlist />}></Route>
           <Route path="/product/:id" element={<ProductPage />}></Route>
+          <Route path='*' element={<ErrorPage />}></Route>
         </Routes>
       </div>
       <Footer />

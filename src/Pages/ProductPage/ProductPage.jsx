@@ -17,6 +17,7 @@ import { BsArrowLeft } from "react-icons/bs";
 import { useNavigate, useParams } from 'react-router-dom'
 import { useGetDynamicProductQuery, useGetProductsQuery } from '../Product/ProductApi';
 import ProductCard from '../../Components/ProductCard';
+import FullImage from '../../Components/FullImage';
 
 const ProductsPage = () => {
 
@@ -128,6 +129,10 @@ const ProductsPage = () => {
                             className="w-full h-90 md:h-full md:min-h-100 object-contain bg-gray-300 p-4"
                         />
 
+                        <div className='absolute bottom-4 right-4 cursor-pointer rounded-full border border-gray-500 p-2 bg-gray-500/30'>
+                            <FullImage image={product.image} title={product.title} />
+                        </div>
+
                         <button onClick={handleClick} className='block md:hidden absolute top-2 left-2 p-2 rounded-full '>
                             <BsArrowLeft className='inline-block text-2xl font-light ' />
                         </button>
@@ -225,13 +230,13 @@ const ProductsPage = () => {
                             <ButtonComp width={"w-full"}>Add to cart</ButtonComp>
 
                             {/* Button to Copy Product Link  */}
-                            <button className='hidden md:block text-2xl border p-1 rounded-sm' title='Share'
+                            <button className='hidden md:block text-2xl border p-1.5 rounded-sm ' title='Share'
                                 onClick={handleCopy}
                             >
                                 <IoShareSocial />
                             </button>
 
-                            <button className='hidden md:block  text-2xl border p-1 rounded-sm' title='Add to wishlist'>
+                            <button className='hidden md:block  text-2xl border p-1.5 rounded-sm ' title='Add to wishlist'>
                                 <FaRegHeart />
                             </button>
                         </div>

@@ -46,7 +46,7 @@ const ProductCard = ({ product }) => {
 
             <div className='relative h-70 w-full rounded-lg overflow-hidden mb-5 '>
                 <NavLink to={`/product/` + product.id}>
-                    <img src={product.image} alt={product.title} className='h-full w-full bg-gray-200 p-3 object-contain' />
+                    <img src={product.image} alt={product.title} className='h-full w-full bg-gray-200 p-3 object-contain ' />
                 </NavLink>
 
                 <button className=' absolute top-2 right-2  bg-white p-2 rounded-full hover:scale-107 transition-transform duration-200 '>
@@ -60,9 +60,13 @@ const ProductCard = ({ product }) => {
 
 
             {/* Product Name */}
-            <NavLink to={`/product/` + product.id}>
-                <span className='text-lg text-gray-800 font-semibold cursor-pointer'>{product.title}</span>
-            </NavLink>
+
+            <span className='text-lg text-gray-800 font-semibold cursor-pointer'>
+                <NavLink to={`/product/` + product.id}>
+                    {product.title}
+                </NavLink>
+            </span>
+
 
             {/* Product Rating*/}
             <div className='flex justify-between items-center  text-sm text-gray-700 font-[700]'>
@@ -90,7 +94,7 @@ const ProductCard = ({ product }) => {
             </div>
 
 
-        </motion.div>
+        </motion.div >
     )
 }
 
