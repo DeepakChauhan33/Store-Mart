@@ -1,6 +1,7 @@
-
 // Hooks
+import React, { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, useParams } from 'react-router-dom'
 
 // Actions
 import { addToWishlist } from '../Wishlist/WishlistSlice';
@@ -9,6 +10,7 @@ import { addToWishlist } from '../Wishlist/WishlistSlice';
 // Components
 import QuantityBtn from '../../Components/QuantityBtn';
 import ButtonComp from '../../Components/ButtonComp';
+import ProductCard from '../../Components/ProductCard';
 
 
 // React Icons
@@ -21,14 +23,15 @@ import { FaRegHeart } from "react-icons/fa";
 import { BsArrowLeft } from "react-icons/bs";
 
 
-import { useNavigate, useParams } from 'react-router-dom'
+// Custom Hooks
 import { useGetDynamicProductQuery, useGetProductsQuery } from '../Product/ProductApi';
-import ProductCard from '../../Components/ProductCard';
-import FullImage from '../../Components/FullImage';
+
 
 const ProductsPage = () => {
 
+
     const { id } = useParams();
+
     const navigate = useNavigate();
 
     const dispatch = useDispatch();
@@ -37,6 +40,8 @@ const ProductsPage = () => {
     const { data: allProducts } = useGetProductsQuery();
 
     if (isLoading) return <p>Loading...</p>;
+
+
 
 
 
@@ -146,16 +151,17 @@ const ProductsPage = () => {
                             className="w-full h-90 md:h-full md:min-h-100 object-contain bg-gray-300 p-4"
                         />
 
-                        <div className='absolute bottom-4 right-4 cursor-pointer rounded-full border border-gray-500 p-2 bg-gray-500/30'>
-                            <FullImage image={product.image} title={product.title} />
-                        </div>
+
 
                         <button onClick={handleClick} className='block md:hidden absolute top-2 left-2 p-2 rounded-full '>
                             <BsArrowLeft className='inline-block text-2xl font-light ' />
                         </button>
 
 
-                        <button className='block md:hidden absolute top-2 right-2  bg-white p-2 rounded-full' title='Add to wishlist'>
+                        <button
+                            className='block md:hidden absolute top-2 right-2  bg-white p-2 rounded-full'
+                            title='Add to wishlist' onClick={() => handleWishlist()}
+                        >
                             <FaRegHeart className='text-lg' />
                         </button>
 
@@ -172,7 +178,7 @@ const ProductsPage = () => {
 
                         {/* Product Title and Copy URL Btn */}
                         <div className='flex  justify-between items-start'>
-                            <p className="underline text-xl  md:text-2xl xl:text-3xl font-bold md:font-semibold">
+                            <p className="lg:underline text-xl  md:text-2xl xl:text-3xl font-bold md:font-semibold">
                                 {product.title}
                             </p>
 

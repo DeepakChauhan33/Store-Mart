@@ -13,7 +13,7 @@ import { motion } from 'framer-motion';
 // React Icons
 import { LuBox } from "react-icons/lu";
 import { IoIosClose } from "react-icons/io";
-import { div } from 'framer-motion/client';
+import { MdDelete } from "react-icons/md";
 
 
 const Wishlist = () => {
@@ -29,14 +29,14 @@ const Wishlist = () => {
   return (
     <section className=' py-4 p-3'>
 
-      <motion.div className='flex flex-col items-start p-2 gap-2 mb-6'
+      <motion.div className='flex flex-col items-start gap-1 mb-6'
 
         initial={{ y: -30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
-        <h2 className='text-4xl font-light'>My Wishlist</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, autem!</p>
+        <h2 className='text-2xl sm:text-3xl lg:text-4xl font-semibold lg:font-light'>My Wishlist</h2>
+        <p>{wishlist.length} items in wishlist</p>
       </motion.div>
 
       <div>
@@ -66,29 +66,50 @@ const Wishlist = () => {
 
           <>
             {/* Wishlist for Mobile */}
-            <div className="block sm:hidden p-3 space-y-4">
+            <div className="block sm:hidden space-y-4">
 
               {wishlist.map((item) => (
-                <div className='flex shadow-sm bg-gray-100 py-4 p-2 rounded-lg gap-3' key={item.id}>
+                <div className=' flex shadow-sm bg-gray-100 gap-1.5' key={item.id}>
                   {/* Image */}
-                  <div className='h-40 w-50 p-3 bg-gray-200'>
-                    <img src={item.image} alt={item.category} className='h-full w-full object-contain' />
+                  <div className='relative h-40 w-50 p-2 bg-gray-200 ' title="product details">
+
+                    <NavLink to={`/product/${item.id}`} >
+                      <img src={item.image} alt={item.category} className='h-full w-full object-contain' />
+                    </NavLink>
+
                   </div>
 
                   {/* Details */}
-                  <div className='w-full flex flex-col justify-between p-3 gap-2'>
+                  <div className='relative w-full flex flex-col justify-evenly p-2 gap-2'>
 
                     {/* Product Title */}
-                    <p className='text-xl font-semibold'>{item.title}</p>
+                    <p className='text-md font-semibold line-clamp-2'>{item.title}</p>
 
-                    <p>{item.price}</p>
+                    <p className='text-xl font-black'>$ {item.price.toFixed(2)}</p>
 
-                    <ButtonComp width={"w-full cursor-pointer"} >Add to cart</ButtonComp>
+
+                    <div className='flex gap-4'>
+                      <ButtonComp width={"w-full cursor-pointer"} >Add to cart</ButtonComp>
+
+                      <button
+                        className="  bg-white  px-1.5"
+                        onClick={() => console.log("Remove from wishlist")}
+                      >
+                        <MdDelete className='text-2xl text-red-400/90 ' />
+                      </button>
+
+                    </div>
+
+
                   </div>
                 </div>
               ))}
 
             </div>
+
+
+
+
             {/*  Wishlist larger screens greater than sm */}
             <div className="hidden sm:block p-3">
               <table className="min-w-full bg-white border border-gray-200 rounded-lg overflow-hidden">
@@ -108,10 +129,10 @@ const Wishlist = () => {
                   {wishlist.map((item) =>
                   (
                     <tr key={item.id}
-                      className="shadow-[0_2px_4px_rgba(0,0,0,0.1)] hover:bg-gray-100/60 transition-colors duration-200">
+                      className="shadow-[0_2px_4px_rgba(0,0,0,0.1)]  hover:bg-gray-100/60 transition-colors duration-200">
 
                       <td className="w-[40%] group  px-6 py-4 font-medium cursor-pointer" title="product details">
-                        <NavLink to={`/product/${item.id}`} className="flex items-center gap-3">
+                        <NavLink to={`/product/${item.id}`} >
                           {<div className='flex justify-start gap-2 items-center'>
 
                             <img src={item.image} alt={item.category} className='h-20 w-20 object-contain transition-transform duration-300 group-hover:scale-106' />
