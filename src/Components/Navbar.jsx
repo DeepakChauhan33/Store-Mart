@@ -107,8 +107,17 @@ const Navbar = () => {
                         <NavLink to="/products">Products</NavLink>
                         <NavLink to="/orders">Orders</NavLink>
                     </div>
+
+
+
+
                 </div>
+
+
             )}
+
+
+
         </nav>
     );
 };

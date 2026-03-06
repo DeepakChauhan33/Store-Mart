@@ -14,6 +14,7 @@ import ProductPage from './Pages/ProductPage/ProductPage';
 // Importing Footer
 import Footer from './Components/Footer';
 import ErrorPage from './Pages/ErrorPage/ErrorPage';
+import BottomNavbar from './Components/BottomNavbar';
 
 
 
@@ -37,6 +38,9 @@ function App() {
       </div>
       <Footer />
 
+      <div className='md:hidden fixed bottom-0 left-0 w-full z-50'>
+        <BottomNavbar />
+      </div>
     </>
   )
 }
