@@ -16,6 +16,7 @@ import { TiArrowRight } from "react-icons/ti";
 
 // Import Framer Motion Library For Animation
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -28,14 +29,18 @@ const Home = () => {
 
     const { data: Products, isLoading } = useGetProductsQuery();
 
-
+    const navigate = useNavigate();
 
 
 
 
     const filterProduct = (category) => {
-
         return Products?.filter((item) => item.category === category);
+    }
+
+
+    const handleClick = () => {
+        navigate("/products");
     }
 
 
@@ -79,7 +84,9 @@ const Home = () => {
 
 
                     <div className='flex gap-3'>
-                        <button className='p-2 px-4 bg-black text-white rounded-md hover:text-black hover:bg-white transition transform hover:scale-105 duration-300'>
+                        <button className='p-2 px-4 bg-black text-white rounded-md hover:text-black hover:bg-white transition transform hover:scale-105 duration-300'
+                            onClick={handleClick}
+                        >
                             Shop Now <TiArrowRight size={22} className='inline' />
                         </button>
 
