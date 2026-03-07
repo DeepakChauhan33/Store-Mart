@@ -3,6 +3,7 @@ import { RiHome2Line } from "react-icons/ri";
 import { BiStoreAlt } from "react-icons/bi";
 import { FaRegHeart } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
+import { FiShoppingCart } from "react-icons/fi";
 
 import { NavLink } from "react-router-dom";
 const BottomNavbar = () => {
@@ -22,16 +23,18 @@ const BottomNavbar = () => {
                 </button>
 
                 <button>
-                    <NavLink to="/wishlist">
-                        <FaRegHeart />
+                    <NavLink to="/orders">
+                        <FiShoppingCart />
                     </NavLink>
                 </button>
 
                 <button>
-                    <NavLink to="/profile">
+                    <NavLink to="/wishlist">
                         <CgProfile />
                     </NavLink>
                 </button>
+
+
 
             </div>
         </nav>

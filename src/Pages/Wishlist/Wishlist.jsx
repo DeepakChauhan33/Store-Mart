@@ -42,7 +42,7 @@ const Wishlist = () => {
       <div>
         {wishlist.length === 0 ? (
           <motion.div
-            className='h-96 flex justify-center items-center border'
+            className='h-[65vh] flex justify-center items-center rounded-lg bg-gray-100'
 
             initial={{ y: 0, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -135,7 +135,7 @@ const Wishlist = () => {
                         <NavLink to={`/product/${item.id}`} >
                           {<div className='flex justify-start gap-2 items-center'>
 
-                            <img src={item.image} alt={item.category} className='h-20 w-20 object-contain transition-transform duration-300 group-hover:scale-106' />
+                            <img src={item.image} alt={item.category} className='h-20 w-20 object-contain transition-transform duration-300 group-hover:scale-108' />
                             <span>{item.title}</span>
 
                           </div>}
