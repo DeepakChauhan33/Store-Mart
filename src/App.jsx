@@ -32,7 +32,7 @@ function App() {
     <>
 
 
-      <div className='pt-18'>
+      
         <Routes>
           <Route path='/' element={<Layout />}>
             <Route path='/' element={<Home />}></Route>
@@ -46,7 +46,7 @@ function App() {
           <Route path='*' element={<ErrorPage />}></Route>
 
         </Routes>
-      </div>
+
 
 
       <div className='md:hidden fixed bottom-0 left-0 w-full z-50'>

@@ -75,14 +75,14 @@ const Navbar = () => {
                     <div className="flex items-center gap space-x-4 md:xl:space-x-6">
 
 
-                        <div className="relative cursor-pointer p-2 hover:bg-black hover:text-white rounded-lg  transition transform hover:scale-110 ease-in-out duration-300" title="Wishlist">
+                        <div className="" title="Wishlist">
                             <NavLink to="/search">
-                                <BsSearch size={24} />
+                                <BsSearch size={20} />
                             </NavLink>
                         </div>
 
 
-                        <div className="relative cursor-pointer p-2 hover:bg-black hover:text-white rounded-lg  transition transform hover:scale-110 ease-in-out duration-300" title="Wishlist">
+                        <div className="relative cursor-pointer p-2 hover:bg-black hover:text-white rounded-lg  transition transform hover:scale-110 ease-in-out duration-300" >
                             <NavLink to="/wishlist">
                                 <FiHeart size={20} />
                                 {wishlistCount > 0 && <span className="absolute -top-2 -right-2 inline-flex items-center justify-center px-2 py-1 text-xs font-normal leading-none text-white bg-red-600 rounded-full">{wishlistCount}</span>}
