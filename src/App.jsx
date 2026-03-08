@@ -21,6 +21,10 @@ import Layout from './Layout/Layout';
 import BottomNavbar from './Components/BottomNavbar';
 import CartPage from './Pages/Cart/CartPage';
 
+// Toast Message Library
+import { Toaster } from "react-hot-toast";
+
+
 
 
 
@@ -32,6 +36,8 @@ function App() {
   return (
     <>
 
+      {/* Hot-toast library for toast msgs */}
+      <Toaster position="bottom-right" reverseOrder={false} />
 
 
       <Routes>

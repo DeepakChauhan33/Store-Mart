@@ -12,6 +12,9 @@ import QuantityBtn from '../../Components/QuantityBtn';
 import ButtonComp from '../../Components/ButtonComp';
 import ProductCard from '../../Components/ProductCard';
 
+// Toast Message
+import toast from "react-hot-toast";
+
 
 // React Icons
 import { FaShield } from "react-icons/fa6";
@@ -47,12 +50,6 @@ const ProductsPage = () => {
 
 
 
-
-    const handleClick = () => {
-        navigate(-1);
-    }
-
-
     const checkIsInWishlist = wishlist.some(
         (item) => item.id === product.id
     );
@@ -63,9 +60,9 @@ const ProductsPage = () => {
     const handleCopy = async () => {
         try {
             await navigator.clipboard.writeText(window.location.href);
-            alert("URL copied to clipboard!");
+            toast.success("URL copied")
         } catch (err) {
-            console.error("Failed to copy: ", err);
+            toast.error("Failed to copy ")
         }
     };
 
@@ -129,11 +126,11 @@ const ProductsPage = () => {
             <section className="bg-gray-100/30   flex flex-col p-2 md:p-5 ">
 
                 <div className='hidden md:block space-x-2'>
-                    <button onClick={handleClick} className=' p-1.5 cursor-pointer rounded-full hover:bg-gray-200'>
+                    <button onClick={() => navigate(-1)} className=' p-1.5 cursor-pointer rounded-full hover:bg-gray-200'>
                         <BsArrowLeft className='inline-block text-3xl font-light ' />
                     </button>
 
-                    <span className='text-lg font-medium'>Back to home</span>
+                    <span className='text-lg font-medium'>Back</span>
                 </div>
 
                 <div className='flex flex-col md:flex-row items-start mt-3 space-x-4 '>
@@ -150,16 +147,19 @@ const ProductsPage = () => {
 
 
 
-                        <button onClick={handleClick} className='block md:hidden absolute top-2 left-2 p-2 rounded-full '>
+                        <button onClick={() => navigate(-1)} className='block md:hidden absolute top-2 left-2 p-2 rounded-full '>
                             <BsArrowLeft className='inline-block text-2xl font-light ' />
                         </button>
 
 
                         <button
+
                             className='block md:hidden absolute top-2 right-2  bg-white p-2 rounded-full'
-                            title='Add to wishlist' onClick={() => handleWishlist()}
-                        >
-                            <FaRegHeart className='text-lg' />
+                            onClick={() => dispatch(toggleWishlist(product))}>
+
+                            {checkIsInWishlist ? (<FaHeart className='text-lg md:text-xl ' />) : (<FaRegHeart className='text-lg md:text-xl ' />)}
+
+
                         </button>
 
 
@@ -185,6 +185,7 @@ const ProductsPage = () => {
                                 onClick={handleCopy}
                             >
                                 <IoShareSocial />
+
                             </button>
 
 
@@ -254,6 +255,7 @@ const ProductsPage = () => {
                                 onClick={handleCopy}
                             >
                                 <IoShareSocial />
+
                             </button>
 
                             <button className='hidden md:block  text-2xl border p-1.5 rounded-sm ' title='Add to wishlist'

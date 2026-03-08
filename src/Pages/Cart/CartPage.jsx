@@ -86,7 +86,7 @@ const CartPage = () => {
 
 
                                             {/* Image Div */}
-                                            <div className='h-25 w-20 p-1'>
+                                            <div className='h-auto w-20 md:w-25 p-1'>
                                                 <NavLink to={`/product/${item.id}`}>
                                                     <img src={item.image} alt={item.category} className='h-full w-full object-contain' />
                                                 </NavLink>
@@ -102,10 +102,15 @@ const CartPage = () => {
                                                 </div>
 
                                                 {/* Quantity & Delete Button */}
-                                                <div className=' flex flex-col justify-between items-end '>
+                                                <div className=' flex flex-col justify-between items-end gap-3 '>
 
-                                                    <div className="min-w-26 ">
+                                                    <div className="min-w-26 flex justify-end ">
                                                         <QuantityBtn />
+                                                    </div>
+
+                                                    <div>
+                                                        <p className='text-sm font-normal'>sub total</p>
+                                                        <span className='text-md font-black'>${item.price}</span>
                                                     </div>
 
                                                     <button

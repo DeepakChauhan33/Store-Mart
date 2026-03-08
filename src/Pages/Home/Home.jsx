@@ -16,7 +16,9 @@ import { TiArrowRight } from "react-icons/ti";
 
 // Import Framer Motion Library For Animation
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { useEffect } from 'react';
 
 
 
@@ -44,11 +46,20 @@ const Home = () => {
     }
 
 
-
+    // This is not work properly as I come back from product page to home it show toast again and twice
+    useEffect(() => { 
+        toast(`Please login first `, { icon: "➜]", position: "top-right", duration: 2000, style: { marginTop: "80px" } })
+    }, [])
 
 
     return (
+
+
         <>
+
+
+
+
             <div
                 className='h-[85dvh] md:h-screen w-full flex justify-center items-center space-y-10 
                         bg-[url("https://i.pinimg.com/1200x/09/ab/dd/09abdd904702ef068837a7ac010e926b.jpg")]  bg-cover bg-no-repeat bg-center'>
