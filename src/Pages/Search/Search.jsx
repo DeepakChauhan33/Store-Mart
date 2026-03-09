@@ -1,15 +1,49 @@
 // Hooks
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+
+
+import { useGetProductsQuery } from '../Product/ProductApi';
+
 
 // Icons
 import { BsArrowLeft } from "react-icons/bs";
 import { CiSearch } from "react-icons/ci";
+import { useState } from "react";
 
 
 const Search = () => {
 
+    const { data: Products, isLoading } = useGetProductsQuery();
 
 
+    const [val, setVal] = useState("");
+
+
+    const handleChange = (e) => {
+        setVal(e.target.value);
+    }
+
+
+
+    function debounce(func, delay) {
+
+        let timerID;
+
+        return function (...args) {
+            clearTimeout(timerID);
+            timerID = setTimeout(() => {
+                func(...args);
+            }, delay)
+        }
+    }
+
+    const search = () => {
+        console.log(Products);
+    }
+
+
+    const searchWithDebounce = debounce(search, 1000);
 
     const navigate = useNavigate();
     return (
@@ -30,8 +64,13 @@ const Search = () => {
                         <CiSearch size={20} />
                     </span>
 
-                    <input type="text" placeholder="Search products..." className="pl-10 w-full rounded py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    <input type="text" placeholder="Search products..." className="pl-10 w-full rounded py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500" value={val} onChange={handleChange} onKeyUp={searchWithDebounce} />
                 </div>
+            </div>
+
+
+            <div>
+                
             </div>
         </section>
     )
