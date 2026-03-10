@@ -9,8 +9,15 @@ const LoginPage = () => {
     }
     return (
 
-        <section className='h-fit flex justify-center items-center p-4'>
-            <form className='w-full md:w-[60%] border rounded-xl p-4 space-y-6'
+        <section className='h-fit flex flex-col justify-center items-center py-14 '>
+
+            <div className=' w-[50%] space-y-6 mb-10  px-2'>
+                <h2 className='text-4xl font-bold'>Welcome back</h2>
+                <p className='text-xl '>Welcome back! Please enter your details</p>
+            </div>
+
+
+            <form className='w-full md:w-[50%] shadow-2xl rounded-xl p-4 space-y-6'
                 onSubmit={handleSubmit}
             >
                 <div className='flex flex-col'>
