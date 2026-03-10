@@ -9,41 +9,39 @@ const LoginPage = () => {
     }
     return (
 
-        <section className='h-fit flex flex-col justify-center items-center py-14 '>
+        <section className='bg-gray-100 h-fit  py-14 flex flex-col justify-center items-center'>
 
-            <div className=' w-[50%] space-y-6 mb-10  px-2'>
-                <h2 className='text-4xl font-bold'>Welcome back</h2>
-                <p className='text-xl '>Welcome back! Please enter your details</p>
+
+
+            <div className='w-[50%] p-4 bg-white rounded-xl shadow-xl '>
+
+
+                <div className=' space-y-4 mb-10  px-2'>
+                    <h2 className='text-4xl font-bold'>Welcome back</h2>
+                    <p className='text-xl '>Welcome back! Please enter your details</p>
+                </div>
+
+
+                <form className='w-full rounded-xl p-4 space-y-6'
+                    onSubmit={handleSubmit}
+                >
+                    <div className='flex flex-col space-y-3'>
+                        <label htmlFor="name" className='font-bold'>Email</label>
+                        <input type="email" className='px-2 py-3 border border-gray-500 rounded-md' />
+                    </div>
+
+                    <div className='flex flex-col space-y-3'>
+                        <label htmlFor="name" className='font-bold'>Password</label>
+                        <input type="password" className='px-2 py-3 border border-gray-500 rounded-md' />
+                    </div>
+
+                    <p className='text-end text-md font-normal  text-blue-700 cursor-pointer '>forget password?</p>
+
+                    <button className=' w-full py-2.5 rounded-md mt-4 bg-blue-400 hover:bg-blue-600/80 cursor-pointer'>
+                        Submit
+                    </button>
+                </form>
             </div>
-
-
-            <form className='w-full md:w-[50%] shadow-2xl rounded-xl p-4 space-y-6'
-                onSubmit={handleSubmit}
-            >
-                <div className='flex flex-col'>
-                    <label htmlFor="name">Name</label>
-                    <input type="text" placeholder='Name' className='px-2 py-3 border' />
-                </div>
-
-                <div className='flex flex-col'>
-                    <label htmlFor="name">Name</label>
-                    <input type="text" placeholder='Name' className='px-2 py-3 border' />
-                </div>
-
-                <div className='flex flex-col'>
-                    <label htmlFor="name">Name</label>
-                    <input type="text" placeholder='Name' className='px-2 py-3 border' />
-                </div>
-
-                <div className='flex flex-col'>
-                    <label htmlFor="name">Name</label>
-                    <input type="text" placeholder='Name' className='px-2 py-3 border' />
-                </div>
-
-                <button className='border w-full py-2.5 rounded-md'>
-                    Submit
-                </button>
-            </form>
         </section>
     )
 }
