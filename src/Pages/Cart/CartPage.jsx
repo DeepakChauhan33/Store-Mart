@@ -36,7 +36,7 @@ const CartPage = () => {
     if (loader) {
         return (
             <div className="flex justify-center items-center h-screen">
-                <div className="text-xl font-semibold animate-pulse">
+                <div className="text-xl font-semibold animate-bounce">
                     Processing Order...
                 </div>
             </div>

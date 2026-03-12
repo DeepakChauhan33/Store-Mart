@@ -1,6 +1,7 @@
 // Hooks
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 
 import { useGetProductsQuery } from '../Product/ProductApi';
@@ -10,6 +11,8 @@ import { useGetProductsQuery } from '../Product/ProductApi';
 import { BsArrowLeft } from "react-icons/bs";
 import { CiSearch } from "react-icons/ci";
 import { useState } from "react";
+import { s } from "framer-motion/client";
+import { div } from "framer-motion/m";
 
 
 const Search = () => {
@@ -20,34 +23,53 @@ const Search = () => {
 
     const [val, setVal] = useState("");
 
+    const [results, setResults] = useState([]);
+
 
     const handleChange = (e) => {
         setVal(e.target.value);
     }
 
 
+    // Debounce logic
+    useEffect(() => {
 
-    function debounce(func, delay) {
+        const timer = setTimeout(() => {
 
-        let timerID;
+            const filtered = Products.filter((item) =>
+                item.title.toLowerCase().includes(val.toLowerCase())
+            );
 
-        return function (...args) {
-            clearTimeout(timerID);
-            timerID = setTimeout(() => {
-                func(...args);
-            }, delay)
-        }
-    }
+            setResults(filtered);
 
-    const search = () => {
-        console.log(Products);
-    }
+        }, 1000);
+
+        return () => clearTimeout(timer);
+
+    }, [val, Products]);
 
 
-    const searchWithDebounce = debounce(search, 1000);
+    // Debounce logic
+    useEffect(() => {
+
+        const timer = setTimeout(() => {
+
+            const filtered = Products.filter((item) =>
+                item.title.toLowerCase().includes(val.toLowerCase())
+            );
+
+            setResults(filtered);
+
+        }, 1000);
+
+        return () => clearTimeout(timer);
+
+    }, [val, Products]);
+
+
 
     return (
-        <section className="bg-purple-50 h-[100vh]">
+        <section className="bg-purple-50 h-screen">
 
             <div className="h-18 border flex items-center gap-3 sm:gap-5 lg:gap-8 p-2 sm:p-5 lg:p-7">
 
@@ -64,7 +86,7 @@ const Search = () => {
                         <CiSearch size={20} />
                     </span>
 
-                    <input type="text" placeholder="Search products..." className="pl-10 w-full rounded py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500" value={val} onChange={handleChange} onKeyUp={searchWithDebounce} />
+                    <input type="text" placeholder="Search products..." className="pl-10 w-full rounded py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500" value={val} onChange={handleChange} />
                 </div>
             </div>
 
@@ -72,8 +94,26 @@ const Search = () => {
             <div>
 
             </div>
+
+
+            <div className="p-4 ">
+
+                {results?.map((item) => (
+                    <NavLink to={`/product/${item.id}`}>
+                        <div key={item.id} className=" group flex items-center py-1.5  gap-3 hover:bg-gray-200 cursor-pointer my-2 ">
+                            <div className="group h-15 w-15 ">
+                                <img src={item.image} alt={item.title} className="h-full w-full object-contain transition-transform hover:scale-102 duration-200 ease-in-out" />
+                            </div>
+                            <p className="line-clamp-1" >{item.title}</p>
+                        </div>
+                    </NavLink>
+                ))}
+
+            </div>
         </section>
-    )
+    );
+
 }
+
 
 export default Search

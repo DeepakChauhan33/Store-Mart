@@ -30,7 +30,7 @@ const OrderPage = () => {
   const navigate = useNavigate();
 
   return (
-    <section className=' p-2 py-4'>
+    <section className=' p-2 py-4 '>
 
       <motion.div
         className='px-3'
@@ -40,34 +40,34 @@ const OrderPage = () => {
         transition={{ duration: 0.8 }}
       >
         <h2 className='text-4xl font-light'>My Orders</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, autem!</p>
+        <p>You have {orders.length} orders</p>
       </motion.div>
 
 
 
 
 
-      <motion.div className='w-full p-3'>
+      <motion.div className='h-auto w-full p-3 gap-y-6'>
         {orders.length === 0 ?
           (
-            <div className='flex flex-col justify-center items-center gap-4'>
+            <div className='h-98 flex flex-col justify-center items-center gap-4'>
               <LuBox className='text-7xl text-gray-400' />
               <p className='text-xl font-light'>{orderMsg}</p>
 
               <button
                 onClick={() => navigate("/products")}
                 className='bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors duration-200'>
-                Shop Now0
+                Shop Now
 
               </button>
             </div>
           )
           :
           (
-            <div className='flex flex-col gap-4 rounded-lg overflow-hidden mt-6'>
+            <div className='h-auto flex flex-col gap-4 rounded-lg overflow-hidden mt-6 '>
 
               {orders.map((order) => (
-                <div  >
+                <div key={order.id}  >
 
                   <div className='flex justify-between bg-gray-100 px-6 py-2.5 '>
                     {/* Order ID */}
@@ -109,16 +109,20 @@ const OrderPage = () => {
                     ))}
                   </div>
 
+                  <div className='flex justify-between p-3.5 px-5 bg-gray-200'>
+                    <span className=' p-2 hover:underline'>View Details</span>
+                    <button
+                      className='shadow-md rounded-md px-3 py-1 bg-white cursor-pointer transition-transform hover:scale-101'
+                      onClick={() => (navigate("/products"))}>order again</button>
+                  </div>
+
                 </div>
+
+
               ))}
 
 
-              <div className='flex justify-between p-3.5 px-5 bg-gray-200'>
-                <span className=' p-2 hover:underline'>View Details</span>
-                <button
-                  className='shadow-md rounded-md px-3 py-1 bg-white cursor-pointer transition-transform hover:scale-101'
-                  onClick={() => (navigate("/products"))}>order again</button>
-              </div>
+
 
             </div>
 
