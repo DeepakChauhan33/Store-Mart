@@ -3,10 +3,11 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 
-
+// ACTIONS
+import { clearCart } from '../Pages/Cart/CartSlice';
 import { addOrder } from '../Pages/Order/orderSlice';
 
-const CartBill = () => {
+const CartBill = ({ setLoader }) => {
 
     const cart = useSelector((state) => state.cart.cart);
     const dispatch = useDispatch();
@@ -23,18 +24,30 @@ const CartBill = () => {
 
     function handleOrder() {
 
-        const orderDtat = {
-            id: Date.now(),
-            products: cart,
-            total: total,
-            date: new Date().toLocaleDateString()
+        setLoader(true);
 
-        }
+        setTimeout(() => {
+            const orderDtat = {
+                id: Date.now(),
+                products: cart,
+                total: total,
+                date: new Date().toLocaleDateString()
+
+            }
 
 
-        dispatch(addOrder(orderDtat))
+            dispatch(addOrder(orderDtat))
+            dispatch(clearCart());
+            navigate("/orders")
+            setLoader(false);
+
+        }, 2000);
     }
 
+
+    const handlePreOrder = setInterval(() => {
+
+    })
 
     return (
         <section>

@@ -19,15 +19,30 @@ import { motion } from "framer-motion";
 import { NavLink, useNavigate } from "react-router-dom";
 
 const CartPage = () => {
+
     const cart = useSelector((state) => state.cart.cart);
 
     const dispatch = useDispatch();
 
     const navigate = useNavigate();
 
+    const [loader, setLoader] = useState(false);
+
     const [orderMsg, setOrderMsg] = useState(
         "No orders here—why not start shopping?",
     );
+
+
+    if (loader) {
+        return (
+            <div className="flex justify-center items-center h-screen">
+                <div className="text-xl font-semibold animate-pulse">
+                    Processing Order...
+                </div>
+            </div>
+        );
+    }
+
 
     return (
         <section className=" p-2 py-4 ">
@@ -197,7 +212,7 @@ const CartPage = () => {
                             {/* Bill Summary */}
 
                             <div className="p-4 border w-full lg:w-[40%] h-fit lg:sticky lg:top-38 rounded-lg">
-                                <CartBill />
+                                <CartBill setLoader={setLoader} />
                             </div>
                         </div>
                     )}
