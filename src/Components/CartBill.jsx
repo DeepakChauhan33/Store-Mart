@@ -18,8 +18,21 @@ const CartBill = () => {
     }, 0)
 
 
+
+    // Here i created an object, which have all the information of cart and then dispatch it
+
     function handleOrder() {
-        dispatch(addOrder(cart));
+
+        const orderDtat = {
+            id: Date.now(),
+            products: cart,
+            total: total,
+            date: new Date().toLocaleDateString()
+
+        }
+
+
+        dispatch(addOrder(orderDtat))
     }
 
 

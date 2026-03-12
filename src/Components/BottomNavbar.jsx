@@ -5,7 +5,16 @@ import { FaRegHeart } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import { FiShoppingCart } from "react-icons/fi";
 
+// HOOKS
+import { useSelector } from "react-redux";
+
 import { NavLink } from "react-router-dom";
+
+
+const isLogin = useSelector((state)=>state.auth.isLogin);
+console.log(isLogin)
+
+
 const BottomNavbar = () => {
     return (
         <nav>
@@ -33,6 +42,12 @@ const BottomNavbar = () => {
                         <CgProfile />
                     </NavLink>
                 </button>
+
+                {/* <button>
+                    <NavLink to="/login">
+                        {isLogin ? (<FiShoppingCart />) : (<CgProfile />)}
+                    </NavLink>
+                </button> */}
 
 
 

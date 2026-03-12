@@ -10,12 +10,16 @@ import { motion } from 'framer-motion';
 // Hooks
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { p } from 'framer-motion/client';
+
 
 
 const OrderPage = () => {
 
 
   const orders = useSelector((state) => state.orders.orders);
+
+
   console.log(orders)
   const [orderMsg, setOrderMsg] = useState("No orders here—why not start shopping?");
 
@@ -43,16 +47,36 @@ const OrderPage = () => {
         transition={{ duration: 1.5 }}
 
       >
-        <div className='flex flex-col justify-center items-center gap-4'>
-          <LuBox className='text-7xl text-gray-400' />
-          <p className='text-xl font-light'>{orderMsg}</p>
 
-          <button
-            onClick={() => navigate("/products")}
-            className='bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors duration-200'>
-            Shop Now
 
-          </button>
+        <div>
+          {orders.length === 0 ?
+            (
+              <div className='flex flex-col justify-center items-center gap-4'>
+                <LuBox className='text-7xl text-gray-400' />
+                <p className='text-xl font-light'>{orderMsg}</p>
+
+                <button
+                  onClick={() => navigate("/products")}
+                  className='bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors duration-200'>
+                  Shop Now0
+
+                </button>
+              </div>
+            )
+            :
+            (
+              <div className='flex flex-col justify-center items-center gap-4'>
+                <h1>Order</h1>
+
+                <div>
+                  {orders.map((item) => (
+                    <p>{item.products.title}</p>
+                  ))}
+                </div>
+              </div>
+            )
+          }
         </div>
       </motion.div>
     </section>

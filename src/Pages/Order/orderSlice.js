@@ -12,7 +12,6 @@ const orderSlice = createSlice({
     reducers: {
 
         addOrder: (state, action) => {
-            console.log(456)
             state.orders.push(action.payload);
         }
     }
