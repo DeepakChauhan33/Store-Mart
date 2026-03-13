@@ -59,8 +59,8 @@ const ProductPage = () => {
 
             {/* Product page header */}
             <div className=' p-2 py-4 space-y-2 bg-gradient-to-r from-purple-50 via-purple-100 to-purple-300'>
-                <h2 className='text-3xl font-bold'>See Products</h2>
-                <p className='text-xl font-normal'>{msg}</p>
+                <h2 className='text-xl lg:text-3xl font-bold'>See Products</h2>
+                <p className='text-sm lg:text-xl font-normal'>{msg}</p>
             </div>
 
             {/* COntainer for products */}

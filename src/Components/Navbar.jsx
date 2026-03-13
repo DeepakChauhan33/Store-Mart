@@ -65,9 +65,10 @@ const Navbar = () => {
                         </NavLink>
 
 
-                        {/* <NavLink to="/home" className="h-full flex justify-center px-2 items-center border-b-3 border-transparent  hover:border-b-3 hover:border-purple-700  hover:text-purple-700 transition transform hover:scale-100  ease-in-out duration-400">
-                            Home
-                        </NavLink> */}
+                        <NavLink to="/cart" className="relative h-full flex justify-center px-2 items-center border-b-3 border-transparent  hover:border-b-3 hover:border-purple-700  hover:text-purple-700 transition transform hover:scale-100  ease-in-out duration-400">
+                            <span>Cart({cartCount})</span>
+
+                        </NavLink>
 
 
 
@@ -92,12 +93,12 @@ const Navbar = () => {
                             </div>
                         </NavLink>
 
-                        <NavLink to="/cart">
+                        {/* <NavLink to="/cart">
                             <div className="hidden md:block relative cursor-pointer p-2 hover:bg-black hover:text-white rounded-lg  transition transform hover:scale-110 ease-in-out duration-300" title="Cart" >
                                 <FiShoppingCart size={20} />
                                 <span className="absolute -top-2 -right-2 inline-flex items-center justify-center px-2 py-1 text-xs font-normal leading-none text-white bg-red-600 rounded-full">{cartCount}</span>
                             </div>
-                        </NavLink>
+                        </NavLink> */}
 
 
 

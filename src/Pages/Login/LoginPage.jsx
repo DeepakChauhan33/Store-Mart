@@ -10,20 +10,21 @@ import { useSelector } from 'react-redux';
 import LoginForm from './LoginForm';
 
 
+// ICONS
+import { CgProfile } from "react-icons/cg";
+import UserPage from './UserPage';
+
 
 const LoginPage = () => {
 
     const isLogin = useSelector((state) => state.auth.isLogin)
     return (
 
-        <section className='bg-gray-100 h-fit  py-14 flex flex-col justify-center items-center p-8'>
+        <section className='bg-gray-100 py-14 px-5 flex flex-col justify-center items-center '>
 
             {isLogin ?
                 (
-                    <div className='w-full -m-8  h-screen border
-                    bg-[url("https://www.pngall.com/wp-content/uploads/19/Ecommerce-Website-Seasonal-Discount-Banner-PNG.png")]  bg-cover bg-no-repeat bg-center'>
-
-                    </div>
+                    <UserPage />
                 )
 
                 :

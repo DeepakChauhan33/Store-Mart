@@ -6,10 +6,11 @@ import { useNavigate } from 'react-router-dom';
 
 
 // ACTIONS
-import { login, logout } from './authSlice';
+import { login, logout, userDetails } from './authSlice';
 
 // TOAST MESSAGE LIBRARY
 import toast from 'react-hot-toast';
+import { pattern } from 'framer-motion/client';
 
 const LoginForm = () => {
 
@@ -21,7 +22,8 @@ const LoginForm = () => {
     const dispatch = useDispatch();
 
 
-
+    // NAME
+    const [name, setName] = useState("");
 
     // EMAIL
     const [email, setEmail] = useState("");
@@ -32,18 +34,19 @@ const LoginForm = () => {
     // ERROR MESSAGE
     const [errMsg, setErrMsg] = useState({
         emailError: " ",
-        passwordError: " "
+        passwordError: " ",
+        nameError: " "
     })
 
     // 
-    const [fromValid, setFormValid] = useState(false);
+    const [formValid, setFormValid] = useState(false);
 
 
     // CHECK EMAIL VALIDATION USING REGEX 
     const validateEmail = (email) => {
 
         let emailError = errMsg.emailError;
-        let isValid = fromValid;
+        let isValid = formValid;
         let pattern = /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
 
         if (!pattern.test(email.trim())) {
@@ -67,7 +70,7 @@ const LoginForm = () => {
     const validatePassword = (password) => {
 
         let passwordError = errMsg.passwordError;
-        let isValid = fromValid;
+        let isValid = formValid;
         let pattern = /^(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
 
 
@@ -79,16 +82,49 @@ const LoginForm = () => {
                 isValid = true;
         }
 
+
         setPassword(password.trim());
         setErrMsg({ ...errMsg, passwordError });
         return isValid;
     }
 
 
+    // VALIDATE NAME
+
+    const validateName = (name) => {
+
+        let nameError = errMsg.nameError;
+        let pattern = /^[a-zA-Z\s]+$/;
+        let isValid = formValid;
+
+        if (name.trim().length < 3) {
+            nameError = "Please enter atleast three words";
+            isValid = false;
+        } else if (!pattern.test(name.trim())) {
+            nameError = "enter only letters and spaces ";
+            isValid = false;
+        } else {
+            nameError = " ",
+                isValid = true;
+        }
+
+        setName(name);
+        setErrMsg({ ...errMsg, nameError })
+        return isValid;
+    }
+
+
+
+
 
     const handleChange = (e) => {
+
         if (e.target.id === "email") {
             validateEmail(e.target.value);
+        }
+
+        else if (e.target.id === "name") {
+            validateName(e.target.value);
         }
 
         else if (e.target.id === "password") {
@@ -101,11 +137,15 @@ const LoginForm = () => {
 
         e.preventDefault();
 
-        if (validateEmail(email) && validatePassword(password)) {
+        if (validateName(name) && validateEmail(email) && validatePassword(password)) {
+
             dispatch(login(true));
+            dispatch(userDetails({ name, email, password }));
+
 
             setEmail(" ");
-            setPassword("")
+            setPassword("");
+            setName(" ")
 
             toast.success('Login Successfuly')
             navigate('/');
@@ -124,6 +164,20 @@ const LoginForm = () => {
             <form className='w-full rounded-xl p-2 lg:p-4 space-y-6'
                 onSubmit={handleSubmit}
             >
+
+                <div className='flex flex-col space-y-2'>
+                    <label htmlFor="name" className='font-bold'>Name</label>
+                    <input
+                        type="text"
+                        id='name'
+                        name='name'
+                        value={name}
+                        onChange={handleChange}
+                        className='px-2 py-3 border border-gray-500 rounded-md' />
+                    <p className='text-sm font-normal text-red-500'>{errMsg.nameError}</p>
+                </div>
+
+
                 <div className='flex flex-col space-y-2'>
                     <label htmlFor="email" className='font-bold'>Email</label>
                     <input
