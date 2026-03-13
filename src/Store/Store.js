@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import productReducer from "../Pages/Product/ProductSlice";
+// import productReducer from "../Pages/Product/ProductSlice";
 import { ProductApi } from "../Pages/Product/ProductApi";
 import wishlistReducer from "../Pages/Wishlist/WishlistSlice";
 import cartReducer from "../Pages/Cart/CartSlice";
@@ -9,7 +9,7 @@ import orderReducer from "../Pages/Order/orderSlice";
 
 const Store = configureStore({
     reducer: {
-        products: productReducer,
+        // products: productReducer,
         [ProductApi.reducerPath]: ProductApi.reducer,
         wishlist: wishlistReducer,
         cart: cartReducer,

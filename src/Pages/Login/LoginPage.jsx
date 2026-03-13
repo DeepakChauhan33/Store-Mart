@@ -20,7 +20,7 @@ const LoginPage = () => {
     const isLogin = useSelector((state) => state.auth.isLogin)
     return (
 
-        <section className='bg-gray-100 py-14 px-5 flex flex-col justify-center items-center '>
+        <section className='bg-gray-100  flex flex-col justify-center items-center  '>
 
             {isLogin ?
                 (

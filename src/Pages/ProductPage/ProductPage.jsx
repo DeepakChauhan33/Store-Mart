@@ -29,6 +29,7 @@ import { FaHeart } from "react-icons/fa";
 
 // Custom Hooks
 import { useGetDynamicProductQuery, useGetProductsQuery } from '../Product/ProductApi';
+import WishlistBtn from "../../Components/WishlistBtn";
 
 
 const ProductsPage = () => {
@@ -50,9 +51,6 @@ const ProductsPage = () => {
 
 
 
-    const checkIsInWishlist = wishlist.some(
-        (item) => item.id === product.id
-    );
 
 
 
@@ -152,7 +150,7 @@ const ProductsPage = () => {
                         </button>
 
 
-                        <button
+                        {/* <button
 
                             className='block md:hidden absolute top-2 right-2  bg-white p-2 rounded-full'
                             onClick={() => dispatch(toggleWishlist(product))}>
@@ -160,7 +158,11 @@ const ProductsPage = () => {
                             {checkIsInWishlist ? (<FaHeart className='text-lg md:text-xl ' />) : (<FaRegHeart className='text-lg md:text-xl ' />)}
 
 
-                        </button>
+                        </button> */}
+
+                        <div className='block md:hidden '>
+                            <WishlistBtn product={product} position={'absolute'} />
+                        </div>
 
 
                     </div>
@@ -232,18 +234,6 @@ const ProductsPage = () => {
 
 
 
-                        {/* Quantity Button */}
-                        <div className=''>
-                            <QuantityBtn />
-                        </div>
-
-
-
-
-
-
-
-
 
                         {/*  Add to cart button and Add to wishlist  */}
                         <div className="flex flex-col md:flex-row gap-x-2 ">
@@ -251,17 +241,21 @@ const ProductsPage = () => {
                             <ButtonComp width={"w-full"} product={product}>Add to cart</ButtonComp>
 
                             {/* Button to Copy Product Link  */}
-                            <button className='hidden md:block text-2xl border p-1.5 rounded-sm ' title='Share'
+                            <button className='hidden md:block text-2xl border p-2 rounded-sm ' title='Share'
                                 onClick={handleCopy}
                             >
                                 <IoShareSocial />
 
                             </button>
 
-                            <button className='hidden md:block  text-2xl border p-1.5 rounded-sm ' title='Add to wishlist'
+                            {/* <button className='hidden md:block  text-2xl border p-1.5 rounded-sm ' title='Add to wishlist'
                                 onClick={() => dispatch(toggleWishlist(product))}>
                                 {checkIsInWishlist ? (<FaHeart className='text-lg md:text-xl ' />) : (<FaRegHeart className='text-lg md:text-xl ' />)}
-                            </button>
+                            </button> */}
+
+                            <div className='hidden md:block  border p-1 rounded-sm  '>
+                                <WishlistBtn product={product} position={' '} />
+                            </div>
                         </div>
 
 

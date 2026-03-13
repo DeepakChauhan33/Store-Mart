@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 // Components
 import QuantityBtn from "../../Components/QuantityBtn";
-import CartBill from "../../Components/CartBill";
+import CartBill from "../Cart/CartBill";
 
 // Actions
 import { removeFromCart } from "./CartSlice";

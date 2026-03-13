@@ -1,11 +1,11 @@
 import { div, p } from 'framer-motion/client';
-import React from 'react'
+import React, { useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 
 // ACTIONS
-import { clearCart } from '../Pages/Cart/CartSlice';
-import { addOrder } from '../Pages/Order/orderSlice';
+import { clearCart } from './CartSlice';
+import { addOrder } from '../Order/orderSlice';
 
 const CartBill = ({ setLoader }) => {
 
@@ -14,9 +14,14 @@ const CartBill = ({ setLoader }) => {
 
     const navigate = useNavigate();
 
-    let total = cart.reduce((acc, crr) => {
-        return acc + crr.price * crr.quantity
-    }, 0)
+
+
+
+    const total = useMemo(() => {
+        console.log("called");
+        return calculateTotal(cart);
+
+    }, [cart])
 
 
 
@@ -118,6 +123,16 @@ const CartBill = ({ setLoader }) => {
             </div>
         </section>
     )
+}
+
+
+function calculateTotal(cart) {
+    let total = cart.reduce((acc, crr) => {
+        return acc + crr.price * crr.quantity
+    }, 0)
+
+    return total;
+
 }
 
 export default CartBill

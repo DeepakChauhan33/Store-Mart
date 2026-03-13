@@ -6,13 +6,16 @@ import { useState } from 'react';
 
 // Components
 import ProductCard from '../../Components/ProductCard';
-import CategoryAccordion from '../../Components/CategoryAccordion';
+import CategoryAccordion from './CategoryAccordion';
 
+
+// Content Loader
+import ContentLoader from 'react-content-loader'
 
 
 import { useGetProductsQuery } from '../Product/ProductApi';
 
-const ProductPage = () => {
+const ProductPage = ({ ...rest }) => {
 
     const { data: Products, isLoading } = useGetProductsQuery();
 
@@ -25,7 +28,12 @@ const ProductPage = () => {
     const [selected, setSelected] = useState("All Products");
 
     if (isLoading) {
-        return <p>Loading...</p>
+        return <ContentLoader height="500" style={{ width: "100%" }} viewBox="0 0 275 240" {...rest}>
+            <rect x="15" y="15" rx="4" ry="4" width="25" height="25" />
+            <rect x="15" y="50" rx="2" ry="2" width="350" height="150" />
+            <rect x="15" y="230" rx="2" ry="2" width="170" height="20" />
+            <rect x="60" y="230" rx="2" ry="2" width="170" height="20" />
+        </ContentLoader>
     }
 
 
@@ -58,7 +66,7 @@ const ProductPage = () => {
         <main className='w-full p-3'>
 
             {/* Product page header */}
-            <div className=' p-2 py-4 space-y-2 bg-gradient-to-r from-purple-50 via-purple-100 to-purple-300'>
+            <div className=' p-2 py-4 space-y-2 bg-linear-to-r from-purple-50 via-purple-100 to-purple-300'>
                 <h2 className='text-xl lg:text-3xl font-bold'>See Products</h2>
                 <p className='text-sm lg:text-xl font-normal'>{msg}</p>
             </div>

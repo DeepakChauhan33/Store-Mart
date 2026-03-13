@@ -14,9 +14,6 @@ import { motion } from 'framer-motion';
 // Hooks
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { div, h2, p } from 'framer-motion/client';
-
-
 
 const OrderPage = () => {
 
