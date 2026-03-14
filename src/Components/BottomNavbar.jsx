@@ -22,59 +22,54 @@ const BottomNavbar = () => {
 
     return (
         <nav>
-            <div className='w-full h-17 shadow-[0_-1px_10px_rgba(0,0,0,0.1)] shadow-gray-300 bg-gray-900 text-2xl text-white  flex justify-around items-center fixed bottom-0 left-0 z-50'>
-                <button >
-                    <NavLink to="/">
+
+            <ul className='w-full h-18  shadow-gray-300 bg-gray-900 text-xl sm:text-2xl md-text-3xl text-white  flex justify-between px-3 sm:px-6 md:px-9 items-center fixed bottom-0 left-0 z-50'>
+
+
+                {/* HOME */}
+                <NavLink to="/">
+                    <li className="flex flex-col justify-center items-center gap-1.5 ">
                         <RiHome2Line />
-                    </NavLink>
-                </button>
+                        <span className="text-xs sm:text-sm">Home</span>
+                    </li>
+                </NavLink>
 
-                <button >
-                    <NavLink to="/products">
+                {/* PRODUCT */}
+                <NavLink to="/products">
+                    <li className="flex flex-col justify-center items-center gap-1.5">
                         <BiStoreAlt />
-                    </NavLink>
-                </button>
+                        <span className="text-xs sm:text-sm">store</span>
+                    </li>
+                </NavLink>
 
-                <button>
-                    <NavLink to="/cart">
+                {/* CART */}
+                <NavLink to="/cart">
+                    <li className="flex flex-col justify-center items-center gap-1.5">
                         <FiShoppingCart />
-                    </NavLink>
-                </button>
+                        <span className="text-xs sm:text-sm">Cart</span>
+                    </li>
+                </NavLink>
 
-                <button>
-                    <NavLink to="/orders">
+                {/* ORDERS */}
+                <NavLink to="/orders">
+                    <li className="flex flex-col justify-center items-center gap-1.5">
                         <BiBox />
-                    </NavLink>
-                </button>
+                        <span className="text-xs sm:text-sm">orders</span>
+                    </li>
+                </NavLink>
 
-                <button>
-                    <NavLink to="/login">
+
+                {/* LOGIN */}
+                <NavLink to="/login">
+                    <li className="flex flex-col justify-center items-center gap-1.5">
                         <CgProfile />
-                    </NavLink>
-                </button>
+                        <span className="text-xs sm:text-sm">Profile</span>
+                    </li>
+                </NavLink>
 
+            </ul>
 
-
-
-
-                {/* {isLogin ? (<button>
-                    <NavLink to="/orders">
-                        <BiBox />
-                    </NavLink>
-                </button>
-                )
-                    :
-                    (<button>
-                        <NavLink to="/login">
-                            <CgProfile />
-                        </NavLink>
-                    </button>
-                    )} */}
-
-
-
-            </div>
-        </nav>
+        </nav >
     )
 }
 

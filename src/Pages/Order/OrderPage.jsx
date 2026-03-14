@@ -44,16 +44,23 @@ const OrderPage = () => {
 
 
 
-      <motion.div className='h-auto w-full p-3 gap-y-6'>
+      <motion.div className='h-auto w-full p-3 gap-y-6'
+
+        initial={{ y: 0, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 1.5 }}
+      >
         {orders.length === 0 ?
           (
             <div className='h-98 flex flex-col justify-center items-center gap-4'>
-              <LuBox className='text-7xl text-gray-400' />
-              <p className='text-xl font-light'>{orderMsg}</p>
+              <LuBox className="text-7xl lg:text-8xl text-gray-400" />
+              <p className="text-md md:text-xl lg:text-3xl font-light">
+                {orderMsg}
+              </p>
 
               <button
                 onClick={() => navigate("/products")}
-                className='bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors duration-200'>
+                className="bg-gray-800 text-white text-sm lg:text-lg px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors duration-200">
                 Shop Now
 
               </button>

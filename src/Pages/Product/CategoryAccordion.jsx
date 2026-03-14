@@ -17,7 +17,6 @@ const categories = [
 ];
 
 
-console.log("CAlled")
 
 const CategoryAccordion = ({ selected, setSelected }) => {
 
@@ -25,7 +24,7 @@ const CategoryAccordion = ({ selected, setSelected }) => {
 
     return (
         <Disclosure defaultOpen>
-            {({ open }) => (    
+            {({ open }) => (
                 <>
 
                     <Disclosure.Button className="font-bold text-lg flex items-center justify-between w-full px-4 py-2 text-left text-gray-800 bg-gray-100 rounded-lg hover:bg-gray-200 focus:outline-none ">

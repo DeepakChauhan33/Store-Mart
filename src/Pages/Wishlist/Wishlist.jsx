@@ -49,7 +49,7 @@ const Wishlist = () => {
       <div>
         {wishlist.length === 0 ? (
           <motion.div
-            className='h-[65vh] flex justify-center items-center rounded-lg bg-gray-100'
+            className='h-98 flex justify-center items-center rounded-lg bg-gray-100'
 
             initial={{ y: 0, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -57,12 +57,15 @@ const Wishlist = () => {
 
           >
             <div className='flex flex-col justify-center items-center gap-4'>
-              <LuBox className='text-7xl text-gray-400' />
-              <p>No items in your wishlist</p>
+              <LuBox className="text-7xl lg:text-8xl text-gray-400" />
+
+              <p className="text-md md:text-xl lg:text-3xl font-light">
+                No items in your wishlist
+              </p>
 
               <button
                 onClick={() => navigate("/products")}
-                className='bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors duration-200'>
+                className="bg-gray-800 text-white text-sm lg:text-lg px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors duration-200">
                 Shop Now
               </button>
             </div>

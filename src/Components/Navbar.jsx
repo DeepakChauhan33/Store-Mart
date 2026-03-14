@@ -66,7 +66,7 @@ const Navbar = () => {
 
 
                         <NavLink to="/cart" className="relative h-full flex justify-center px-2 items-center border-b-3 border-transparent  hover:border-b-3 hover:border-purple-700  hover:text-purple-700 transition transform hover:scale-100  ease-in-out duration-400">
-                            <span>Cart({cartCount})</span>
+                            <span className=' min-w-19'>Cart({cartCount})</span>
 
                         </NavLink>
 
@@ -78,18 +78,18 @@ const Navbar = () => {
                     <div className="flex items-center gap space-x-4 md:xl:space-x-6">
 
 
-                        <div className="cursor-pointer p-2 hover:bg-black hover:text-white rounded-lg  transition transform hover:scale-110 ease-in-out duration-300" >
-                            <NavLink to="/search">
+                        <NavLink to="/search">
+                            <div className="cursor-pointer p-2 hover:bg-black hover:text-white rounded-lg  transition transform hover:scale-110 ease-in-out duration-300" >
                                 <BsSearch size={20} />
-                            </NavLink>
-                        </div>
+                            </div>
+                        </NavLink>
 
 
                         <NavLink to="/wishlist">
                             <div className="relative cursor-pointer p-2 hover:bg-black hover:text-white rounded-lg  transition transform hover:scale-110 ease-in-out duration-300" title="Wishlist" >
 
                                 <FiHeart size={20} />
-                                {wishlistCount > 0 && <span className="absolute -top-2 -right-2 inline-flex items-center justify-center px-2 py-1 text-xs font-normal leading-none text-white bg-red-600 rounded-full">{wishlistCount}</span>}
+                                <span className="absolute -top-2 -right-2 inline-flex items-center justify-center px-2 py-1.5 text-xs font-normal leading-none text-white bg-red-600 rounded-full">{wishlistCount}</span>
                             </div>
                         </NavLink>
 

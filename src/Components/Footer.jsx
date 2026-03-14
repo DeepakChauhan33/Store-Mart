@@ -1,109 +1,96 @@
-import React from 'react'
 
-// React Icons
-import { RiInstagramFill } from "react-icons/ri";
-import { FaSquareXTwitter } from "react-icons/fa6";
-import { FaFacebook } from "react-icons/fa";
+
+// ICONS
+import { FaInstagram, FaTwitter, FaFacebookF } from "react-icons/fa";
 
 
 const Footer = () => {
   return (
-    <footer className='px-12 py-10 bg-gray-200'>
+    <footer className="bg-[#0f0d11] text-gray-300 pb-12 md:p-0">
+      <div className="max-w-7xl mx-auto px-6 py-12">
 
-      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-between max-w-8xl gap-10'>
 
-        {/* Logo and Short Title */}
-        <div className='border'>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
 
-          {/* Logo */}
-          <div className='text-2xl font-bold  mb-4'>
-            logo
-          </div>
-
-          <p className="text-sm text-gray-400 leading-6 mb-6">
-            Your trusted source for quality products at great prices.
-          </p>
 
           <div>
-            <ul className='flex gap-4 text-2xl'>
-              <li>
-                <RiInstagramFill />
-              </li>
+            <h2 className="text-2xl font-bold text-white mb-4">StoreFront.</h2>
+            <p className="text-sm text-gray-400 leading-6 mb-6">
+              Minimal fashion for the modern world. Redefining style with
+              sustainability and authenticity at our core.
+            </p>
 
-              <li>
-                <FaSquareXTwitter />
-              </li>
+            <div className="flex gap-4">
+              <FaInstagram className="cursor-pointer hover:text-white transition-transform hover:-translate-y-1 duration-200 ease-in-out" />
+              <FaTwitter className="cursor-pointer hover:text-white transition-transform hover:-translate-y-1 duration-200 ease-in-out" />
+              <FaFacebookF className="cursor-pointer hover:text-white transition-transform hover:-translate-y-1 duration-200 ease-in-out" />
+            </div>
+          </div>
 
-              <li>
-                <FaFacebook />
-              </li>
+
+
+
+          {/* Quick Links */}
+
+          <div>
+
+            <h2 className='text-white font-semibold mb-4'>
+              Categories
+            </h2>
+
+            <ul>
+              <li className="hover:text-white cursor-pointer">Home</li>
+              <li className="hover:text-white cursor-pointer">Products</li>
+              <li className="hover:text-white cursor-pointer">Cart</li>
+              <li className="hover:text-white cursor-pointer">Orders</li>
             </ul>
           </div>
+
+
+          {/* Categories */}
+          <div>
+
+            <h2 className='text-white font-semibold mb-4'>
+              Categories
+            </h2>
+
+            <ul>
+              <li className=" hover:text-white cursor-pointer">Men's</li>
+              <li className=" hover:text-white cursor-pointer">Women's</li>
+              <li className=" hover:text-white cursor-pointer">Electronics</li>
+              <li className=" hover:text-white cursor-pointer">Jewelry</li>
+            </ul>
+          </div>
+
+
+          {/* Support */}
+          <div>
+            <h3 className="text-white font-semibold mb-4">Stay in the loop</h3>
+            <p className="text-sm text-gray-400 mb-4">
+              Subscribe to receive exclusive offers and updates.
+            </p>
+
+            <input
+              type="email"
+              placeholder="Your email address"
+              className="w-full bg-[#1a1a1a] border border-gray-700 rounded-md px-4 py-2 mb-4 text-sm focus:outline-none focus:border-white"
+            />
+
+            <button className="w-full bg-white text-black font-medium py-2 rounded-md hover:bg-gray-200 transition">
+              SUBSCRIBE
+            </button>
+          </div>
+
         </div>
 
 
-
-        {/* Quick Links */}
-        <div>
-
-          <h2 className='font-semibold mb-4'>
-            Links
-          </h2>
-
-          <ul>
-            <li className=" cursor-pointer">Home</li>
-            <li className=" cursor-pointer">Products</li>
-            <li className=" cursor-pointer">Cart</li>
-            <li className=" cursor-pointer">Orders</li>
-          </ul>
+        <div className="border-t border-gray-800 mt-12 pt-6 text-center text-sm text-gray-500">
+          © 2026 StoreFront Fashion. All rights reserved.
         </div>
 
-
-        {/* Categories */}
-        <div>
-
-          <h2 className='font-semibold mb-4'>
-            Categories
-          </h2>
-
-          <ul>
-            <li className=" cursor-pointer">Men's</li>
-            <li className=" cursor-pointer">Women's</li>
-            <li className=" cursor-pointer">Electronics</li>
-            <li className=" cursor-pointer">Jewelry</li>
-          </ul>
-        </div>
-
-
-        {/* Support */}
-        <div>
-
-          <h3 className=" font-semibold mb-4">
-            Stay Updated
-          </h3>
-
-          <p className="text-sm text-gray-400 mb-4">
-            Subscribe to receive exclusive offers and updates.
-          </p>
-
-
-          <input
-            type="email"
-            placeholder="Your email address"
-            className="w-full bg-purple-500 border border-gray-700 rounded-md px-4 py-2 mb-4 text-sm focus:outline-none focus:border-white"
-          />
-
-          <button className="w-full bg-yellow-100 text-black font-medium py-2 rounded-md hover:bg-gray-200 transition">
-            SUBSCRIBE
-          </button>
-        </div>
       </div>
-
-      <p className='text-center mt-8'>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, tenetur!
-      </p>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

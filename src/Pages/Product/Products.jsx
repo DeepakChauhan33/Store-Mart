@@ -12,7 +12,10 @@ import CategoryAccordion from './CategoryAccordion';
 // Content Loader
 import ContentLoader from 'react-content-loader'
 
+// Motion
+import { motion } from 'framer-motion';
 
+// API Actions
 import { useGetProductsQuery } from '../Product/ProductApi';
 
 
@@ -67,23 +70,36 @@ const ProductPage = ({ ...rest }) => {
 
 
     return (
-        <main className='w-full p-3'>
+        <main className='w-full p-2 md:p-3'>
 
             {/* Product page header */}
-            <div className=' p-2 py-4 space-y-2 bg-linear-to-r from-purple-50 via-purple-100 to-purple-300'>
+
+
+            <motion.div
+
+                className=' p-2 py-4 space-y-2 bg-linear-to-r from-purple-50 via-purple-100 to-purple-300'
+
+                initial={{ y: -30, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8 }}>
                 <h2 className='text-xl lg:text-3xl font-bold'>See Products</h2>
                 <p className='text-sm lg:text-xl font-normal'>{msg}</p>
-            </div>
+            </motion.div>
 
             {/* COntainer for products */}
-            <div className=' flex flex-col md:flex-row justify-start items-start space-x-0 md:space-x-10 space-y-5 md:space-y-0 p-3 mt-5 '>
+            <div className=' flex flex-col md:flex-row justify-start items-start space-x-0 md:space-x-10 space-y-5 md:space-y-0 md:p-3 mt-5 '>
 
                 {/* Category container */}
-                <div className='w-full md:w-[20%] border border-gray-300 rounded-lg '>
+                <motion.div
+                    className='w-full md:w-[20%] border border-gray-300 rounded-lg md:sticky top-24 '
+
+                    initial={{ x: -30, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ duration: 0.8 }}>
 
                     <CategoryAccordion selected={selected} setSelected={setSelected} />
-                </div>
 
+                </motion.div>
                 {/* Products Container */}
                 <div className='w-full md:w-[80%]'>
 
@@ -96,7 +112,7 @@ const ProductPage = ({ ...rest }) => {
                     </div>
                 </div>
             </div>
-        </main>
+        </main >
     )
 }
 
