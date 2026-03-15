@@ -60,7 +60,7 @@ const Search = () => {
 
 
     return (
-        <section className="bg-purple-50 h-fit">
+        <section className="bg-linear-to-r from-zinc-50 via-neutral-100 to-neutral-100 min-h-screen">
 
             <div className="h-18 border flex items-center gap-3 sm:gap-5 lg:gap-8 p-2 sm:p-5 lg:p-7">
 

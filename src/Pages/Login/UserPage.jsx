@@ -4,6 +4,10 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 
+// IMAGES
+import UserImg from '../../Images/UserPageImg.jpg';
+
+
 // Actions
 import { logout } from './authSlice'
 
@@ -14,8 +18,10 @@ const UserPage = () => {
 
     const dispatch = useDispatch();
     return (
-        <div className=' w-full  h-150  p-3 flex flex-col justify-center items-center  shadow-md -mx-3 -my-10
-                    bg-[url("https://www.pngall.com/wp-content/uploads/19/Ecommerce-Website-Seasonal-Discount-Banner-PNG.png")]  bg-cover bg-no-repeat object-contain bg-center opacity-85'>
+        <div
+            className="w-full h-screen flex flex-col justify-center items-center shadow-md bg-center bg-cover bg-no-repeat"
+            style={{ backgroundImage: `url(${UserImg})` }}
+        >
 
 
             <div className='w-[70%] lg:w-1/2 h-80 bg-gray-200 opacity-90 p-8 flex flex-col justify-center items-center gap-2  rounded-md '>

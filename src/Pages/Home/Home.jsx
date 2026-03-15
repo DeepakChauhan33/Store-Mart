@@ -219,58 +219,58 @@ const Home = () => {
 
 
 
+            {/* WHAT WE BELIEVE SECTION */}
+            <section className='w-full p-4 bg-linear-to-r from-gray-200 via-zinc-200 to-neutral-300'>
 
-            <section className='w-full '>
+                <div className=' flex flex-col justify-center items-center mb-12 rounded-md py-10  lg:py-18 lg:px-7 gap-y-15 lg:gap-y-25'>
 
-                <div className=' flex flex-col justify-center items-center mb-12 rounded-md  lg:py-16 lg:px-7 gap-y-8 lg:gap-y-14'>
-
-                    <div className='text-center'>
-                        <h1 className='text-2xl md:text-3xl lg:text-5xl font-black '>What we believe</h1>
+                    <div className='w-full px-3 text-center'>
+                        <h1 className='text-3xl lg:text-5xl font-black '>What we believe</h1>
                     </div>
 
-                    <div className=' grid grid-cols-2 md:grid-cols-4 justify-items-center items-start space-y-10 w-full '>
+                    <div className='grid gird-cols-1 md:grid-cols-2 lg:grid-cols-4  justify-items-center items-start gap-x-5 space-y-10 w-full p-2'>
 
-                        <div className='flex items-center gap-x-3'>
-                            <div className='text-2xl md:text-3xl lg:text-4xl'>
+                        <div className='flex items-center gap-x-3 w-full '>
+                            <div className='text-4xl'>
                                 <PiRocketLaunchDuotone />
                             </div>
 
                             <div>
-                                <p className='text-sm lg:text-lg font-bold'>Free Shipping</p>
-                                <span className='text-sm lg:text-md font-normal text-gray-500'>Orders $50 or moree</span>
+                                <p className='text-lg lg:text-xl font-bold'>Free Shipping</p>
+                                <span className='text-md lg:text-lg font-normal text-gray-500'>Orders $50 or moree</span>
                             </div>
                         </div>
 
-                        <div className='flex items-center gap-x-3'>
-                            <div className='text-2xl md:text-3xl lg:text-4xl'>
+                        <div className='flex items-center gap-x-3 w-full'>
+                            <div className='text-4xl'>
                                 <IoReloadCircleOutline />
                             </div>
 
                             <div>
-                                <p className='text-sm lg:text-lg font-bold'>Free returns</p>
-                                <span className='text-sm lg:text-md font-normal text-gray-500'>Within 30 days</span>
+                                <p className='text-lg lg:text-xl font-bold'>Free returns</p>
+                                <span className='text-md lg:text-lg font-normal text-gray-500'>Within 30 days</span>
                             </div>
                         </div>
 
-                        <div className='flex items-center gap-x-3'>
-                            <div className='text-2xl md:text-3xl lg:text-4xl'>
+                        <div className='flex items-center gap-x-3 w-full'>
+                            <div className='text-4xl'>
                                 <MdOutlineDiscount />
                             </div>
 
                             <div>
-                                <p className='text-sm lg:text-lg font-bold'>Get 10 to 20% off </p>
-                                <span className='text-sm lg:text-md font-normal text-gray-500'>When you sign up</span>
+                                <p className='text-lg lg:text-xl font-bold'>Get 10 to 20% off </p>
+                                <span className='text-md lg:text-lg font-normal text-gray-500'>When you sign up</span>
                             </div>
                         </div>
 
-                        <div className='flex items-center gap-x-3 '>
-                            <div className='text-2xl md:text-3xl lg:text-4xl'>
+                        <div className='flex items-center gap-x-3 w-full '>
+                            <div className='text-4xl'>
                                 <MdSupportAgent />
                             </div>
 
                             <div>
-                                <p className='text-sm lg:text-lg font-bold'>We support</p>
-                                <span className='text-sm lg:text-md font-normal text-gray-500'>24/7 amazing service</span>
+                                <p className='text-lg lg:text-xl font-bold'>We support</p>
+                                <span className='text-md lg:text-lg font-normal text-gray-500'>24/7 amazing service</span>
                             </div>
                         </div>
                     </div>
@@ -286,19 +286,19 @@ const Home = () => {
 
 
 
+            {/* READAY TO SHOP */}
+            <section className='py-5 lg:py-10 border-t border-stone-200 bg-linear-to-r from-slate-50 via-gray-100 to-gray-50'>
 
-            <section className=''>
-
-                <div className=' flex flex-col justify-center items-center mb-12 rounded-md  gap-y-6 py-14 bg-linear-to-r from-stone-400 to-stone-300'>
+                <div className=' flex flex-col justify-center items-center mb-12 rounded-md  gap-y-6 py-9 '>
 
                     <div className='text-center space-y-4'>
-                        <h1 className='text-5xl font-black text-white'>Ready to shop?</h1>
-                        <p className='text-center text-lg font-normal text-gray-100'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, iste! Soluta <br />mollitia expedita ad doloremque.</p>
+                        <h1 className='text-3xl sm:text-4xl lg:text-5xl font-black '>Ready to shop?</h1>
+                        <p className='p-2 lg:px-2 text-center text-sm md:text-lg font-normal '>Explore an extensive collection of products across all categories,<br className='hidden md:block' /> and find the perfect items that match your style, preferences, and everyday needs.</p>
                     </div>
 
                     <div className=''>
                         <button
-                            className='inline-block text-white bg-stone-800 px-8 py-2 rounded-sm shadow-sm shadow-gray-50/50 transition-transform hover:scale-102 hover:text-md'
+                            className='inline-block cursor-pointer text-white bg-stone-800 px-8 py-2 rounded-sm shadow-sm shadow-gray-50/50 transition-transform hover:scale-102 duration-500 ease-in-out hover:text-md'
                             onClick={() => navigate('/products')}>
                             Browse All Products <FiArrowRight className='inline' />
                         </button>
