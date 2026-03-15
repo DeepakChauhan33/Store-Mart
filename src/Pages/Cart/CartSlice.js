@@ -2,8 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 import { act } from "react";
 import { useSelector } from "react-redux";
 
+
+// Function
+import { setLocalStorage, getLocalStorage, removeLocalStorage } from "../../Utils/localStorage";
+
 const initState = {
-    cart: [],
+    cart: getLocalStorage("cart") || [],
 }
 
 

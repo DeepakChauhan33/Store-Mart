@@ -1,7 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+
+// Function
+import { setLocalStorage, getLocalStorage, removeLocalStorage } from "../../Utils/localStorage";
+
 const initState = {
-    wishlist: []
+    wishlist: getLocalStorage("wishlist") || []  //If value1 is truthy → use value1 and If value1 is falsy → use value2
 }
 
 
@@ -12,17 +16,9 @@ const wishlistSlice = createSlice({
 
     reducers: {
 
-        addToWishlist: (state, action) => {
-            state.wishlist.push(action.payload);
-        },
-
-
-        removeFromWishlist: (state, action) => {
-            state.wishlist = state.wishlist.filter((item) => item.id !== action.payload)
-        },
-
 
         toggleWishlist: (state, action) => {
+
 
             const product = action.payload;
 
@@ -32,7 +28,11 @@ const wishlistSlice = createSlice({
                 state.wishlist = state.wishlist.filter((item) => item.id !== product.id)
             } else {
                 state.wishlist.push(product)
+                setLocalStorage(action.payload.id,);
             }
+
+            // Save updated wishlist
+            setLocalStorage("wishlist", state.wishlist);   //Here we storre updated wislist in local storage
         }
     }
 })

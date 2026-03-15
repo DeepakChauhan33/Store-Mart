@@ -39,7 +39,7 @@ const LoginPage = () => {
         const storeUser = getLocalStorage("user");
 
         if (storeUser) {
-            dispatch(login(storeUser));
+            dispatch(login(true));
         }
     }, [])
 
