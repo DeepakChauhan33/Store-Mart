@@ -11,12 +11,22 @@ import UserImg from '../../Images/UserPageImg.jpg';
 // Actions
 import { logout } from './authSlice'
 
+
+// Functions
+import { removeLocalStorage } from '../../Utils/localStorage';
+
 const UserPage = () => {
 
     const users = useSelector((state) => state.auth.loginDetails);
     const user = users[users.length - 1];
 
     const dispatch = useDispatch();
+
+    const handleLogout = () => {
+        dispatch(logout(false));
+        removeLocalStorage("user");
+
+    }
     return (
         <div
             className="w-full h-screen flex flex-col justify-center items-center shadow-md bg-center bg-cover bg-no-repeat"
@@ -36,7 +46,7 @@ const UserPage = () => {
                 <p className='text-lg font-semibold md:text-2xl'>{user?.name}</p>
 
                 <button className='py-2  w-full mt-4 rounded-md bg-purple-500'
-                    onClick={() => dispatch(logout(false))}>
+                    onClick={handleLogout}>
                     Logout
                 </button>
 

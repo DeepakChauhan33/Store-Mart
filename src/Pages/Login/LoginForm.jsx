@@ -1,5 +1,5 @@
 // HOOKS
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
@@ -7,6 +7,11 @@ import { useNavigate } from 'react-router-dom';
 
 // ACTIONS
 import { login, logout, userDetails } from './authSlice';
+
+// Functions
+import { setLocalStorage, getLocalStorage } from '../../Utils/localStorage';
+
+
 
 // TOAST MESSAGE LIBRARY
 import toast from 'react-hot-toast';
@@ -21,6 +26,8 @@ const LoginForm = () => {
 
     const dispatch = useDispatch();
 
+
+    
 
     // NAME
     const [name, setName] = useState("");
@@ -141,6 +148,7 @@ const LoginForm = () => {
 
             dispatch(login(true));
             dispatch(userDetails({ name, email, password }));
+            setLocalStorage("user", name);
 
 
             setEmail(" ");

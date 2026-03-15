@@ -2,23 +2,47 @@
 import React from 'react'
 
 // HOOKS
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+
+
 
 
 
 // Components
 import LoginForm from './LoginForm';
+import UserPage from './UserPage';
 
 
 // ICONS
 import { CgProfile } from "react-icons/cg";
-import UserPage from './UserPage';
-import { div, section } from 'framer-motion/client';
+
+
+
+
+// ACTIONS
+import { login, logout, userDetails } from './authSlice';
+
+// Functions
+import { getLocalStorage } from '../../Utils/localStorage';
 
 
 const LoginPage = () => {
 
     const isLogin = useSelector((state) => state.auth.isLogin)
+
+    const dispatch = useDispatch();
+
+
+    useEffect(() => {
+
+        const storeUser = getLocalStorage("user");
+
+        if (storeUser) {
+            dispatch(login(storeUser));
+        }
+    }, [])
+
 
     return (
 
